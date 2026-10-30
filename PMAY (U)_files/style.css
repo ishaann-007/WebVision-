@@ -1,12 +1,13 @@
 @charset "UTF-8";
-@import url(../css/font-awesome.min.css);
-@import url(../css/font-awesome-animation.min.css);
-@import url(../css/flaticon.css);
-@import url(../css/animate.css);
-@import url(../css/bootsnav.css);
-@import url(../css/fancyBox.css);
-@import url(../css/owl.css);
-@import url(../css/magnific-popup.css);
+/* Legacy non-existent imports commented out to eliminate local 404 network errors */
+/* @import url(../css/font-awesome.min.css); */
+/* @import url(../css/font-awesome-animation.min.css); */
+/* @import url(../css/flaticon.css); */
+/* @import url(../css/animate.css); */
+/* @import url(../css/bootsnav.css); */
+/* @import url(../css/fancyBox.css); */
+/* @import url(../css/owl.css); */
+/* @import url(../css/magnific-popup.css); */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 html {
     font-size: 100%;

@@ -11,7 +11,7 @@ $(document).ready(function() {
     if ($('#process_under_pmay').length !== 0) {
         $.ajax({
             method: 'GET',
-            url: APP_URL + '/api/en/processes',
+            url: (typeof APP_URL !== "undefined" ? APP_URL : "") + '/api/en/processes',
             success: function(data) {
                 if (data) {
                     $('#process_under_pmay').html('');
@@ -24,7 +24,7 @@ $(document).ready(function() {
     if ($('#beneficiary-wrapp').length !== 0) {
         $.ajax({
             method: 'GET',
-            url: APP_URL + '/api/en/beneficiaries',
+            url: (typeof APP_URL !== "undefined" ? APP_URL : "") + '/api/en/beneficiaries',
             success: function(data) {
                 if (data) {
                     $('#beneficiary-wrapp').html('');
@@ -37,7 +37,7 @@ $(document).ready(function() {
     if ($('#partner_slider').length !== 0) {
         $.ajax({
             method: 'GET',
-            url: APP_URL + '/getpartnerslider',
+            url: (typeof APP_URL !== "undefined" ? APP_URL : "") + '/getpartnerslider',
             success: function(data) {
                 if (data) {
                     $('#partner_slider').html('');
@@ -50,7 +50,7 @@ $(document).ready(function() {
     if ($('#count1').length !== 0 || $('#count2').length !== 0 || $('#count3').length !== 0) {
         $.ajax({
             method: 'GET',
-            url: APP_URL + '/angikaarapi',
+            url: (typeof APP_URL !== "undefined" ? APP_URL : "") + '/angikaarapi',
             success: function(data) {
                 if (data) {
                     var arraydata = data.split('*');
@@ -80,14 +80,14 @@ $(document).ready(function() {
         });
     }
 
-    if ($('#content-slider').length !== 0) {
+    if ($.fn.lightSlider && $('#content-slider').length !== 0) {
         $('#content-slider').lightSlider({
             loop: true,
             keyPress: true
         });
     }
 
-    if ($('#image-gallery').length !== 0) {
+    if ($.fn.lightSlider && $('#image-gallery').length !== 0) {
         $('#image-gallery').lightSlider({
             gallery: true,
             item: 1,
@@ -102,7 +102,7 @@ $(document).ready(function() {
         });
     }
 
-    if ($('.tabset0').length !== 0) {
+    if ($.fn.pwstabs && $('.tabset0').length !== 0) {
         $('.tabset0').pwstabs({
             tabsPosition: 'vertical',
             responsive: true,
@@ -110,11 +110,11 @@ $(document).ready(function() {
         });
     }
 
-    if ($('.lightbox-image').length !== 0) {
+    if ($.fn.fancybox && $('.lightbox-image').length !== 0) {
         $('.lightbox-image').fancybox();
     }
 
-    if ($('.masonry-gallery').length > 0 || $('.masonry-grid').length > 0 || $('.masonry-grid-fitrows').length > 0) {
+    if ($.fn.isotope && ($('.masonry-gallery').length > 0 || $('.masonry-grid').length > 0 || $('.masonry-grid-fitrows').length > 0)) {
         $(window).on('load', function() {
             $('.masonry-gallery').fadeIn();
             var $container = $('.masonry-gallery').isotope({
@@ -161,7 +161,7 @@ $(document).ready(function() {
         });
     }
 
-    if ($(".popup-img").length > 0 || $(".mfp-iframe").length > 0 || $(".mfp-img-single").length > 0) {
+    if ($.fn.magnificPopup && ($(".popup-img").length > 0 || $(".mfp-iframe").length > 0 || $(".mfp-img-single").length > 0)) {
         $(".popup-img").magnificPopup({
             type: "image",
             gallery: {
@@ -203,18 +203,18 @@ $(document).ready(function() {
         });
     }
 
-    if ($('#lightgallery').length !== 0) {
+    if ($.fn.lightGallery && $('#lightgallery').length !== 0) {
         $('#lightgallery').lightGallery();
     }
 
-    if ($('#basicSlider').length !== 0) {
+    if ($.fn.multislider && $('#basicSlider').length !== 0) {
         $('#basicSlider').multislider({
             continuous: true,
             duration: 2000
         });
     }
 
-    if ($('#exampleSlider').length !== 0) {
+    if ($.fn.multislider && $('#exampleSlider').length !== 0) {
         $('#exampleSlider').multislider({
             interval: 6000,
             slideAll: true,
@@ -222,7 +222,7 @@ $(document).ready(function() {
         });
     }
 
-    if ($('#exampleSlider1').length !== 0) {
+    if ($.fn.multislider && $('#exampleSlider1').length !== 0) {
         $('#exampleSlider1').multislider({
             interval: 6000,
             slideAll: true,
@@ -230,7 +230,7 @@ $(document).ready(function() {
         });
     }
 
-    if ($('#exampleSlider2').length !== 0) {
+    if ($.fn.multislider && $('#exampleSlider2').length !== 0) {
         $('#exampleSlider2').multislider({
             continuous: true,
             interval: 6000,
@@ -239,7 +239,7 @@ $(document).ready(function() {
         });
     }
 
-    if ($('#exampleSlider3').length !== 0) {
+    if ($.fn.multislider && $('#exampleSlider3').length !== 0) {
         $('#exampleSlider3').multislider({
             interval: 6000,
             slideAll: true,
@@ -247,7 +247,7 @@ $(document).ready(function() {
         });
     }
 
-    if ($('#exampleSlider4').length !== 0) {
+    if ($.fn.multislider && $('#exampleSlider4').length !== 0) {
         $('#exampleSlider4').multislider({
             interval: 6000,
             slideAll: true,
@@ -255,7 +255,7 @@ $(document).ready(function() {
         });
     }
 
-    if ($('#exampleSlider5').length !== 0) {
+    if ($.fn.multislider && $('#exampleSlider5').length !== 0) {
         $('#exampleSlider5').multislider({
             interval: 6000,
             slideAll: true,
@@ -342,7 +342,7 @@ function getstatecitydistrictval() {
         $.ajax({
             method: 'POST',
             data: { state: state, district: district, city: city, city_wise: city_wise },
-            url: APP_URL + '/angikaarapistatewisedata',
+            url: (typeof APP_URL !== "undefined" ? APP_URL : "") + '/angikaarapistatewisedata',
             success: function(data) {
                 if (data) {
                     var arraydata = data.split('*');
@@ -368,7 +368,7 @@ function getstatecitydistrictval() {
     } else {
         $.ajax({
             method: 'GET',
-            url: APP_URL + '/angikaarapi?component=' + city_wise,
+            url: (typeof APP_URL !== "undefined" ? APP_URL : "") + '/angikaarapi?component=' + city_wise,
             success: function(data) {
                 if (data) {
                     var arraydata = data.split('*');
