@@ -48,12 +48,12 @@ behaviour, and only then consider broader UI/UX changes.
                                                   reviewed at the
                                                   documentation level.
 
-  2\. Audit verification  Not started             Next phase. Reproduce key
-  and implementation                              findings and resolve
-  planning                                        evidence gaps before
-                                                  implementation.
+        2\. Audit verification  Complete                Runtime, responsive,
+        and implementation                              asset, content, and
+        planning                                        implementation planning
+                                                                                                        completed.
 
-  3\. Local runtime and   Planned                 Remove avoidable runtime
+    3\. Local runtime and   Pending Approval        Remove avoidable runtime
   dependency                                      failures and repair local
   stabilisation                                   asset/dependency handling.
 
@@ -86,10 +86,9 @@ behaviour, and only then consider broader UI/UX changes.
   readiness                                       and presentation checks.
   --------------------------------------------------------------------------
 
-**Important limitation:** The current review of the audit is based on
-the Markdown reports supplied in the conversation. The original website
-source tree has not been independently re-run or inspected here. The
-next phase must verify key findings against the actual local project.
+**Phase 2 status note:** Verification is being performed against the
+actual local project under `/home/kiyosumi/Documents/Programming/WebVision-`.
+Website source files remain read-only during this phase.
 
 ------------------------------------------------------------------------
 
@@ -148,7 +147,7 @@ measurements.
 
 ## Phase 2 --- Audit verification and implementation planning
 
-**Status: Not started --- next phase**
+**Status: Complete --- implementation plan ready for approval**
 
 ### Goal
 
@@ -182,10 +181,42 @@ them into a safe, file-level implementation plan.
 
 ### Deliverables
 
--   Updated audit notes with reproduction evidence and corrections.
--   A verified local asset/content inventory.
--   A prioritised implementation plan with affected files and test
-    steps.
+-   Updated audit notes with independent reproduction evidence and
+    corrections in `AUDIT_REPORT.md`.
+-   A verified local asset/content inventory recorded in the audit report
+    and dependency documents.
+-   A prioritised implementation plan with affected files, dependencies,
+    risks, and verification steps in `PHASE_2_IMPLEMENTATION_PLAN.md`.
+
+### Completed verification
+
+-   Served the actual project over a local HTTP server and opened the real
+    `PMAY (U).html` entry point.
+-   Reproduced both uncaught page errors and recorded their exact stacks.
+-   Confirmed the `Constructor` failure is the Bootstrap 3 X-editable
+    popover API being used with the page's Bootstrap 5.2.1 jQuery plugin.
+-   Confirmed Axios/API failures caused by unavailable original-host data and
+    local-origin CORS, with `APP_URL` undefined locally.
+-   Reproduced the reported overflow at mobile, tablet, and desktop sizes and
+    identified the translation/captured widget, fixed-width layout elements,
+    search embed, process table, and accessibility control as contributors.
+-   Captured screenshots at all three required viewport sizes.
+-   Checked HTML and captured CSS references against files in the project and
+    classified missing paths, stale captures, and unverified content.
+-   Verified that the accessibility panel opens locally while other remote
+    integrations remain unavailable or error-captured.
+
+### Open decisions and blockers
+
+-   Choose information-architecture Option A, B, or C before structural
+    changes.
+-   Approve which third-party services may remain external in the demo.
+-   Approve the verified local content allowed to populate dynamic sections.
+-   Decide whether local search is required or should remain an external or
+    unavailable feature.
+
+Phase 3 must not begin until these decisions and the implementation plan are
+approved.
 
 ### Constraints
 
@@ -215,7 +246,7 @@ Do not implement structural changes until this decision is made.
 
 ## Phase 3 --- Local runtime and dependency stabilisation
 
-**Status: Planned**
+**Status: Pending Approval**
 
 ### Goal
 
@@ -436,10 +467,9 @@ handoff.
 
 ## Immediate next action
 
-Start **Phase 2 --- Audit verification and implementation planning**. Do
-not start Phase 3 code changes until the key findings are reproduced,
-the implementation plan is reviewed, and the information-architecture
-decision is agreed.
+Review `docs/PHASE_2_IMPLEMENTATION_PLAN.md`, choose the information-
+architecture direction, and approve the Phase 3 implementation scope. Do
+not start website source changes before that approval.
 
 ## Project decision log
 
@@ -449,12 +479,12 @@ decision is agreed.
   Preserve original structure or      Open --- decide before structural
   reorganise sections?                changes
 
-  Which verified local content can    To be inventoried in Phase 2
-  populate API-dependent sections?    
+    Which verified local content can    Inventory completed in Phase 2;
+    populate API-dependent sections?    approval required for final set.
 
-  Which third-party services should   To be confirmed in Phase 2
-  remain external, be disabled, or    
-  show unavailable states?            
+    Which third-party services should   Inventory completed in Phase 2;
+    remain external, be disabled, or   approval required for final policy.
+    show unavailable states?            
 
   When to begin visual redesign?      After functional stabilisation and
                                       approval
@@ -470,7 +500,9 @@ Use these project documents as the current planning baseline:
     recommended fallback treatment.
 -   `IMPROVEMENT_BACKLOG.md` --- prioritised work items and
     dependencies.
+-   `PHASE_2_IMPLEMENTATION_PLAN.md` --- verified findings and the
+    file-level Phase 3 implementation sequence.
 
-This roadmap organises the work described in those documents. It does
-not independently verify the original website source or browser
-findings.
+This roadmap organises the work described in those documents. Phase 2
+runtime and browser findings were independently verified against the actual
+local project; website source files remain read-only pending approval.

@@ -97,3 +97,80 @@ The correct next phase is functional hardening, not visual redesign:
 4. Add explicit empty/unavailable states for every API or social feed.
 5. Re-test desktop, tablet, mobile, keyboard navigation, and network behavior.
 6. Only after the page is self-contained should UI improvements be considered.
+
+## Phase 2 Independent Verification
+
+Verification was repeated against the actual `WebVision-` project over
+`http://127.0.0.1:8765/PMAY%20(U).html`. No website source, asset, or vendor
+file was modified.
+
+### Runtime findings
+
+- The `Constructor` error is confirmed at
+	`PMAY (U)_files/vendor.bundle.addons.js:72648:13144`. The surrounding
+	X-editable code reads `a.fn.popover.Constructor.DEFAULTS`. The page exposes
+	Bootstrap 5.2.1 through the jQuery carousel plugin, while this integration
+	expects the Bootstrap 3 jQuery popover API. This is a confirmed dependency
+	mismatch; the vendor bundle itself remains out of scope for direct editing.
+- The Axios `Network Error` is confirmed at `PMAY (U)_files/english.js:2:4547`
+	after a request to `https://pmay-urban.gov.in/api/en/publications` is blocked
+	by local-origin CORS. `/api/en/beneficiaries` also fails. `APP_URL` is
+	undefined in the local page, so the exact compiled URL-resolution path still
+	needs to be handled through a local provider boundary rather than assumed.
+- At runtime, jQuery and Bootstrap 5.2.1 are available, but
+	`lightSlider`, `isotope`, `fancybox`, and `magnificPopup` are undefined.
+- The accessibility trigger remains interactive: clicking `#a11yTrigger`
+	changes `#a11yPanel` to `aria-hidden="false"`.
+- The browser also records CORS failures for Bhashini and PMAY APIs, a 429
+	response, failed Twitter requests, and local 404s for captured translation,
+	CSS, and Font Awesome resources.
+
+### Responsive verification
+
+The reported measurements were reproduced:
+
+| Viewport | `scrollWidth` | `clientWidth` |
+|---|---:|---:|
+| 390 x 844 | 1125 | 375 |
+| 768 x 1024 | 827 | 753 |
+| 1440 x 900 | 1437 | 1425 |
+
+The overflow audit identified these direct contributors:
+
+- Mobile: a generated/captured translation-related `B` element with an
+	approximately 3098px inline width; the captured Google search element at
+	approximately 351px positioned outside the 375px content width; and a
+	381px process table at the 375px content width.
+- Tablet: the translation-related approximately 3098px element; a 400px
+	navigation/list item positioned beyond the 753px content width; and the
+	accessibility trigger positioned at approximately x=782px.
+- Desktop: the same translation-related approximately 3098px element;
+	Bootstrap rows with 12px negative gutters; and a right-side widget whose
+	boundary reaches the document edge. The 12px desktop difference should be
+	rechecked after the generated translation markup is removed or constrained.
+
+The screenshots show the homepage shell and hero rendering at all three
+target sizes, but they also show clipped legacy content. The translation
+element and third-party embeds must be addressed before using a global
+overflow rule as a remedy.
+
+### Asset and content verification
+
+The local reference scan checked 259 relative HTML/CSS references and found
+110 unique missing paths, including `overlay.js`, captured translation CSS,
+three mismatched picture filenames, historical vendor-relative theme assets,
+the sibling `/css/` imports, and Font Awesome `/webfonts/` files. These are
+confirmed missing references, not all confirmed user-visible defects: some
+belong to unused vendor/theme rules and should be removed or isolated rather
+than recreated blindly.
+
+Verified local content is limited to the captured page shell, branding,
+navigation labels, hero/banner imagery, static headings, and files physically
+present in the asset directory. API-backed processes, beneficiaries,
+publications, partner data, Angikaar values, live search, translation, and
+social feeds are not verified local content. The captured Twitter rate-limit
+response and Facebook browser-error page remain error artefacts.
+
+The file-level implementation plan, including priorities, affected files,
+risks, and verification methods, is recorded in
+`PHASE_2_IMPLEMENTATION_PLAN.md`.
