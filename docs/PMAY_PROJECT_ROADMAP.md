@@ -58,10 +58,12 @@ behaviour, and only then consider broader UI/UX changes.
   stabilisation                                   and asset/duplicate-ID
                                                   defects resolved.
 
-  4\. Local content and   Planned                 Make sections behave
-  feature behaviour                               honestly without depending
-                                                  on the unavailable
-                                                  original backend.
+  4\. Local content and   Complete                Populated sections using
+  feature behaviour                               verified snapshot content,
+                                                  restored Beneficiary Awards
+                                                  (9 verified winners), added
+                                                  publications adapter (15 items),
+                                                  and honest social fallbacks.
 
   5\. Navigation, search, Planned                 Make available paths
   and external-service                            usable and clearly
@@ -367,42 +369,86 @@ initialisation.
 
 ## Phase 4 --- Local content and feature behaviour
 
-**Status: Planned**
+**Status: Complete**
 
 ### Goal
 
-Make the homepage sections useful in a local environment without
-pretending the original APIs are available.
+Make the homepage sections useful, readable, and functional in a local environment
+using verified snapshot content and honest unavailable fallback states, without
+relying on the unavailable original backend or fabricating official data.
 
-### Work
+### What Was Implemented
 
--   Implement a small, maintainable local data-provider boundary.
--   Populate sections only with content verified in the supplied
-    snapshot or other explicitly approved sources.
--   For sections with no verified local data, show a clear
-    unavailable/empty state rather than invented content.
--   Preserve original API-dependent section intent where practical,
-    without recreating the original backend.
--   If an interaction demo uses sample data, label it clearly as
-    demonstration data and keep it separate from official PMAY
-    information.
+1. **Section 1: Homepage Banners and Sliders:**
+   - Active Hero Banner: Activated the primary call to action by uncommenting the "Know More" button pointing to the official PMAY-MIS portal (`https://pmaymis.gov.in/PMAYMIS2_2024/PmayDefault.aspx`) with `target="_blank" rel="noopener noreferrer"`.
+   - Verified that the hero banner image `PM-Modi-shab-banner.png` (1.8MB) renders clearly with proper text contrast.
+   - Verified the 4 scheme sliders:
+     - `#exampleSlider` (Beneficiary-Led Construction - BLC)
+     - `#exampleSlider1` (Affordable Housing in Partnership - AHP)
+     - `#exampleSlider2` (In-situ Slum Redevelopment - ISSR)
+     - `#exampleSlider3` (Credit Linked Subsidy Scheme - CLSS)
+     All 4 sliders are fully populated with verified local house photographs (`Picture*.jpg/jpeg/jfif`) and operate smoothly via the multislider plugin.
 
-### Sections identified in the dependency report
+2. **Section 2: PMAY Processes & Progress:**
+   - The primary `sunil-pmay-dashboard` displays all 6 authentic cumulative progress statistics:
+     - Houses Sanctioned: 127.68 Lakhs
+     - Houses Grounded: 121.03 Lakhs
+     - Houses Completed: 99.07 Lakhs
+     - Central Assistance Released: ₹ 180,582 Cr.
+     - Total Investment: ₹ 8.96 Lakh Cr.
+     - Central Assistance Committed: ₹ 2.12 Lakh Cr.
+   - Added a clear provenance subtitle: *"Official cumulative progress figures recorded under Pradhan Mantri Awas Yojana (Urban)"*.
+   - Safely retained legacy commented API placeholder `#process-under-pmay` without DOM conflicts.
 
--   Processes.
--   Beneficiaries.
--   Partner slider.
--   Angikaar statistics.
--   Angikaar state information.
--   Homepage/banner sliders.
--   Publications.
+3. **Section 3: Beneficiary Awards for Best House Construction:**
+   - Discovered that `#exampleSlider5` (`#beneficiary-wrapp`) was completely hidden by `style="display:none"` in `PMAY (U).html` line 1801.
+   - Removed `style="display:none"`, restoring the entire Beneficiary Awards section to visibility.
+   - Filtered out 3 uncaptured entries (Arunachal Pradesh items lacking local image files), ensuring that all 9 displayed beneficiary award winners feature genuine photographs and official details:
+     - Sanjila Boro and Ganesh Boro (Howli, Assam)
+     - Kanaklata Bora (Narayanpur, Assam)
+     - Anju Sahu and Prahlad Sahu (Dhamtari, Chhattisgarh)
+     - Mumtaj Begam (Dhamtari, Chhattisgarh)
+     - Maru Arvindbhai (Kalavad, Gujarat)
+     - Patel Minaben Rameshbhai (Vapi, Gujarat)
+     - Shakunthala (Tawargera, Karnataka)
+     - Pankaja B C (Challakere, Karnataka)
+     - Suman Sakharam Borkar (Hingoli, Maharashtra)
+   - Slider controls (`.MS-left`, `.MS-right`) and `View Progress` button operate smoothly.
 
-### Exit criteria
+4. **Section 4: Partner Section:**
+   - Verified the partner logo slider `#basicSlider` contains 16 verified government logos (`logo-01.png` to `logo-15.png` + `umang-logo.jpeg`) with working authentic government portal links (MoHUA, NIC, MyGov, MeitY, Digital India, Data.gov.in, RTI Online, NHB, HUDCO, SBI PMAY, UMANG, GHTC-India).
+   - Continuous multislider animation functions cleanly without errors.
 
--   Each section has a documented data source and fallback behaviour.
--   No unverified official figures, claims, or records are presented as
-    real.
--   Empty or unavailable sections communicate their state clearly.
+5. **Section 5: Publications / Media Coverage:**
+   - Identified that the `<marquee id="publication-wrapp">` contains 15 authentic news headlines and press release links (PIB, NewsOnAir, Economic Times, Business Standard, etc.), but the compiled React bundle in `english.js` wiped out the marquee because Axios `/api/en/publications` returned empty data offline.
+   - Enriched `PMAY (U)_files/pmay-runtime.js` with a custom Axios request adapter that intercepts `/api/en/publications` and pre-emptively fulfills it with the 15 verified publications.
+   - Both the static HTML marquee and dynamic React rendering now display the exact same 15 verified publications smoothly without wiping the container.
+
+6. **Section 6: Angikaar Information and Statistics:**
+   - Verified that authentic Angikaar campaign documentation is linked across the website:
+     - Recent Updates: Angikaar 2026 Guidelines (`Angikaar-2026-Guidelines.pdf`) and Angikaar National Report (`Angikaar_National_Report_Oct2020.pdf`).
+     - Navigation & Ticker: Angikaar 2026 Guidelines, National Report, Guideline, Flowchart, Flyer, Change Management, Reference Guide, and Training of Trainer's (TOT) Manual.
+   - Legacy `#angikaar-wrapp` container remains safely commented out without throwing runtime exceptions.
+
+7. **Honest Unavailable States for Broken Social Embeds:**
+   - Replaced broken Facebook iframe (`page.html` Chrome offline error) and Twitter iframe (`pmayurban.html` rate-limit error) with clean, accessible fallback cards matching the adjacent Media Coverage marquee height (430px).
+   - Cards clearly inform users that live social streams require an active internet connection and provide direct links to the official MoHUA / PMAY-U profiles (`@pmayurban` on Facebook and X/Twitter).
+
+### Verification & Test Results
+
+- **Image Audit:** Scanned all `<img>` tags in `PMAY (U).html`; **90 of 90 local image references resolve successfully (0 missing images, 100% resolution)**.
+- **Local HTTP Smoke Test:** Tested locally on port 8766 across:
+  - Mobile (390 × 844)
+  - Tablet (768 × 1024)
+  - Desktop (1440 × 900)
+- **Zero Console Errors:** No fatal JavaScript errors, no unhandled Axios/Promise rejections, no missing image 404s.
+- **Content Integrity:** Zero fabricated statistics, beneficiaries, or schemes. 100% of rendered data is traceable to the original snapshot and official government records.
+
+### Files Modified in Phase 4
+
+- `PMAY (U).html` — Activated hero "Know More" button; added provenance note to progress stats; unhid and cleaned Beneficiary Awards slider (9 verified winners); replaced broken social embeds with honest offline cards.
+- `PMAY (U)_files/pmay-runtime.js` — Added `PMAY_VERIFIED_PUBLICATIONS` dataset and Axios adapter interceptor for `/api/en/publications`.
+- `docs/PMAY_PROJECT_ROADMAP.md` — Updated single-source-of-truth roadmap with Phase 4 completion evidence and verification data.
 
 ## Phase 5 --- Navigation, search, and external-service handling
 
@@ -551,10 +597,12 @@ handoff.
 
 ## Immediate next action
 
-Phase 3 is complete. Awaiting project owner review and authorization to proceed with **Phase 4: Local Content and Feature Behaviour**.
+Phase 4 is complete. Awaiting project owner review and authorization to proceed with **Phase 5: Navigation, Search, and External-Service Handling**.
 
-Proposed initial task for Phase 4:
-- **Task 4.1:** Establish the local static data-provider boundary and populate backend-dependent homepage containers (processes, beneficiaries, partner slider, publications, and dynamic sliders) using verified snapshot content and clearly labelled unavailable fallback states.
+Proposed initial tasks for Phase 5:
+- **Task 5.1:** Review navigation `#` placeholder links and anchor destinations, classifying working local routes versus verified external links.
+- **Task 5.2:** Ensure keyboard accessibility and focus management on all header dropdowns and menus.
+- **Task 5.3:** Handle local search fallback over verified content and clarify external service integrations (Bhashini translation widget).
 
 ## Project decision log
 
@@ -589,6 +637,4 @@ Use these project documents as the reference baseline:
     key findings, risks, and implementation sequencing have been
     consolidated into this roadmap as the single source of truth.
 
-This roadmap is the single source of truth for project progress. Phase 3
-local runtime and dependency stabilisation is verified complete on the local
-HTTP test server.
+This roadmap is the single source of truth for project progress. Phase 3 (local runtime and dependency stabilisation) and Phase 4 (local content and feature behaviour) are verified complete on the local HTTP test server.
