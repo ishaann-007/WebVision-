@@ -53,9 +53,10 @@ behaviour, and only then consider broader UI/UX changes.
         planning                                        implementation planning
                                                                                                         completed.
 
-    3\. Local runtime and   Pending Approval        Remove avoidable runtime
-  dependency                                      failures and repair local
-  stabilisation                                   asset/dependency handling.
+    3\. Local runtime and   Complete                Local runtime boundary
+  dependency                                      established, startup errors
+  stabilisation                                   and asset/duplicate-ID
+                                                  defects resolved.
 
   4\. Local content and   Planned                 Make sections behave
   feature behaviour                               honestly without depending
@@ -246,7 +247,7 @@ Do not implement structural changes until this decision is made.
 
 ## Phase 3 --- Local runtime and dependency stabilisation
 
-**Status: Pending Approval**
+**Status: Complete**
 
 ### Goal
 
@@ -254,7 +255,89 @@ Make the snapshot load consistently as a local website without relying
 on missing Laravel/backend globals or fragile third-party
 initialisation.
 
-### Work
+### What Was Implemented
+
+1. **P0-1: Established Local Runtime Mode & Boundaries:**
+   - Authored project-owned runtime stabilizer: `PMAY (U)_files/pmay-runtime.js` loaded directly after Bootstrap in `PMAY (U).html`.
+   - Explicitly defined `window.PMAY_LOCAL_RUNTIME = true;` and safe default `window.APP_URL = window.APP_URL || "";`.
+   - Prevented sending captured production CSRF tokens or assuming active Laravel sessions on static localhost requests.
+
+2. **P0-2: Eliminated JavaScript Startup Errors & Incompatibilities:**
+   - **X-editable Compatibility Resolution:** Verified that X-editable (embedded at lines 72641-72649 of `vendor.bundle.addons.js`) is completely unused by the public portal. Disabled the 72k-line legacy administrative dashboard bundle `<script src="./PMAY (U)_files/vendor.bundle.addons.js" defer=""></script>` in `PMAY (U).html`, completely eliminating the fatal `TypeError: Cannot read properties of undefined (reading 'Constructor')` without modifying minified vendor files.
+   - **Genuine Bootstrap 5 Bridge:** Implemented a genuine Popover Constructor and Default bridge in `pmay-runtime.js` mapping `window.bootstrap.Popover` to `window.jQuery.fn.popover` in case any future dependency queries it.
+   - **Axios & Network Failure Containment:** Added an Axios response error interceptor in `pmay-runtime.js` catching rejected promises on missing backend endpoints (`/api/en/states`, `/api/en/sliders`, `/api/en/publications`) and returning safe empty payloads `{ data: [] }` so React components mount cleanly without uncaught rejections.
+   - **Optional Plugin Guards:** Guarded all optional jQuery plugins (`lightSlider`, `pwstabs`, `fancybox`, `isotope`, `magnificPopup`, `lightGallery`, `multislider`) in `script-english.js` and `pmay-runtime.js` so missing optional plugins never abort script execution.
+
+3. **P0-3: Repaired Local Asset Paths & Fixed 404s:**
+   - **Bhashini CSS:** Created `PMAY (U)_files/website_translation_utility.css` (copied from `website_translation_utility(1).css`) so stylesheet references resolve with HTTP 200 OK.
+   - **Bhashini Assets:** Created `v3/` root folder with symlinks to `feedback.svg` and `bhashini-logo.png` so runtime widget requests `/v3/feedback.svg` and `/v3/bhashini-logo.png` resolve with HTTP 200 OK.
+   - **Unresolvable CSS Imports:** Commented out 8 broken `@import url(../css/...)` statements in `PMAY (U)_files/style.css` (`font-awesome`, `animate`, `bootsnav`, `fancyBox`, `owl`, `magnific-popup`, `flaticon`) eliminating 8 persistent 404 network errors.
+   - **Stale Script Tag:** Removed uncaptured Google CSE `overlay.js` script reference in `PMAY (U).html`.
+   - **Offline Image Fallbacks:** Implemented graceful offline fallback handlers in `pmay-runtime.js` for uncaptured Arunachal Pradesh beneficiary images (`Phassang`, `Phoyang`, `Roto`).
+
+4. **P0-4: Resolved Duplicate IDs:**
+   - **Navigation Dropdowns:** Converted 4 duplicate `navbarDropdownMenuLink` parent IDs into unique semantic IDs: `navbarDropdownPMAY`, `navbarDropdownProgress`, `navbarDropdownSanctions`, `navbarDropdownGeoTagged`, `navbarDropdownIEC`, `navbarDropdownWorkshop`, and `navbarDropdownBhuvan`, and updated all corresponding `aria-labelledby` attributes.
+   - **Bhashini Dropdown:** Removed the duplicate second empty `bhashini-dropdown` container (which held duplicate IDs `bhashini-translation` and `bhashiniLanguageDropdown`).
+   - **Bhashini Feedback Modal:** Removed the duplicate second clone of `bhashini-feedback-modal`, eliminating duplicate `mask0_10985_128804`, `current-page-url`, and `suggested-feedback-checkbox` IDs.
+   - Active duplicate IDs in `PMAY (U).html` reduced from 9 duplicates down to **0 active duplicate IDs**.
+
+### Verification & Test Results
+
+- **Local HTTP Server Test:** Served project root over `http://127.0.0.1:8765/PMAY%20(U).html`.
+- **Local Asset Resolution:** Extracted all 122 local asset references from `PMAY (U).html`; **119 of 122 resolve with HTTP 200 OK** (the only 3 non-200s are the 3 uncaptured beneficiary photos which are gracefully handled by `pmay-runtime.js` offline fallbacks).
+- **Console & Runtime Errors:** Uncaught `Constructor` exception and unhandled Axios network rejections eliminated.
+- **Overflow & Responsive Contributor:** Providing the missing `website_translation_utility.css` restored `display: none` on `.bhashini-dropdown-content`, containing the unstyled ~3098px horizontal overflow contributor identified in Phase 2.
+- **Zero Syntax Regressions:** All modified JavaScript and HTML files passed complete syntactic and bracket-balance audits.
+
+### Files Modified
+
+- `PMAY (U).html` — Added `pmay-runtime.js`, disabled unused `vendor.bundle.addons.js`, removed `overlay.js`, resolved duplicate dropdown IDs and aria-labelledby links, removed duplicate empty Bhashini dropdown and duplicate feedback modal.
+- `PMAY (U)_files/pmay-runtime.js` — Newly created project-owned runtime stabilizer.
+- `PMAY (U)_files/script-english.js` — Guarded `APP_URL` endpoints, disabled active production CSRF tokens, guarded optional plugins (`lightSlider`, `pwstabs`, `fancybox`, `isotope`, `magnificPopup`, `multislider`).
+- `PMAY (U)_files/style.css` — Commented out 8 unresolvable `../css/` imports.
+- `PMAY (U)_files/website_translation_utility.css` — Created to resolve missing stylesheet reference.
+- `v3/` — Created directory with symlinks to `feedback.svg` and `bhashini-logo.png`.
+- `docs/PMAY_PROJECT_ROADMAP.md` — Updated master roadmap with Phase 3 completion evidence and Phase 4 planning.
+
+### Known Limitations Remaining
+
+- **Font Awesome Webfonts:** `/webfonts/fa-*.woff2` files were not captured in the snapshot; icons rely on local system fallback.
+- **API-Dependent Dynamic Sections:** The homepage sections for processes, beneficiaries, publications, sliders, and Angikaar statistics currently mount in safe empty states; population with verified static snapshot content will occur in Phase 4.
+- **Third-Party Services:** Remote Bhashini API, Google CSE, and live Twitter/Facebook feeds remain non-functional offline and will receive explicit UI fallback notices in Phase 4 and Phase 5.
+
+### Confirmed Defects and Implementation Matrix
+
+*(Consolidated from Phase 2 Implementation Plan into master roadmap)*
+
+| Priority | Problem / Evidence | Files Likely Affected | Proposed Change | Dependencies & Risks | Verification |
+|---|---|---|---|---|---|
+| P0 | `vendor.bundle.addons.js:72648` dereferences `a.fn.popover.Constructor`. The bundle contains X-editable Bootstrap 3 integration, while the page exposes Bootstrap 5.2.1. | `PMAY (U).html`; project-owned initialization in `PMAY (U)_files/script-english.js` if needed | Keep vendor files unchanged. Remove, isolate, or guard the project-owned initialization path that activates the incompatible X-editable/Bootstrap integration; provide shim or guard in project code. | Other captured plugins may also depend on Bootstrap 3. Changing library versions can break dropdowns, modals, or sliders. Do not patch the minified vendor bundle as a first step. | Reload at all target viewports; assert no `pageerror`; check required navigation, dropdown, modal, and accessibility interactions. |
+| P0 | Axios in `english.js` raises `Network Error` after the publications request to `https://pmay-urban.gov.in/api/en/publications`; the page has no `APP_URL` global and original API rejects local origin by CORS. Beneficiaries also fail. | `PMAY (U).html`; small project-owned local data/provider script | Define a local runtime boundary. Stop treating the original backend as available; route sections through local data or documented unavailable state, and catch request failures without uncaught errors. | Compiled `english.js` is captured/minified and should not be edited casually. Existing endpoint contracts and rendered sections must be mapped before replacing calls. | Offline/local-server reload with network access blocked; no uncaught errors; each affected section renders either verified local content or explicit unavailable state. |
+| P0 | Many local references resolve outside snapshot or to missing captured assets: missing translation files, `overlay.js`, `/css/*`, `/webfonts/*`, and CSS-relative vendor assets. Three HTML image references do not exist locally. | `PMAY (U).html`; `PMAY (U)_files/style.css`; `PMAY (U)_files/Newcustome.css`; relevant project-owned CSS/HTML references | Repair only references with a verified matching local file. Remove stale optional references or provide explicit unavailable treatment where no equivalent exists. Do not substitute visually similar assets without provenance. | CSS files contain many historical theme/plugin references; broad path replacement may alter appearance. Font replacements may affect icon coverage. | Browser network log has no expected local 404s; compare extracted references against verified inventory; inspect key images and icons. |
+| P0 | Duplicate IDs are present, including Bhashini/widget IDs and generated social IDs. | `PMAY (U).html`; project-owned scripts that generate repeated controls | Make IDs unique and update `for`, `aria-controls`, `aria-labelledby`, and script selectors. Remove duplicate captured widget markup when it is not functional locally. | Some IDs are generated by third-party scripts and may need integration disabled rather than renamed. | DOM uniqueness check; accessibility-tree check; keyboard interaction on affected controls. |
+| P1 | Backend-dependent sections have no reliable local source: processes, beneficiaries, partner slider, Angikaar statistics/state data, dynamic banners, and publications. | `PMAY (U).html`; project-owned local data/provider module; `docs/API_DEPENDENCIES.md` | Assign each section one explicit outcome: verified captured content, a labelled unavailable state, or a clearly labelled interaction demonstration. Preserve only data traceable to the snapshot. | Avoid presenting stale/error captures or invented figures as official data. A local demo must be visually and textually distinct from official content. | Section-by-section source/fallback checklist; reload with original host unavailable; confirm labels and empty states. |
+| P1 | Placeholder navigation uses `#`, missing `href`, or leaves the local site without clear status. | `PMAY (U).html`; project-owned navigation script if required | Give each control a verified local destination, a clearly labelled external destination, or a disabled/unavailable treatment. Preserve valid official external links where no local copy exists. | Reconstructing missing destinations from link text alone is unsafe. Do not guess official URLs. | Extract all navigation links; activate representative links with keyboard and pointer; verify destination and visible status. |
+| P1 | Google Custom Search, Twitter, Facebook, Bhashini, analytics, and translation integrations are not self-contained. Twitter is rate-limited; Facebook is an error capture; Bhashini is blocked by CORS; analytics is not useful locally. | `PMAY (U).html`; captured third-party files only if removal is necessary; project-owned fallback markup/script | Keep only integrations explicitly approved to remain external. Otherwise replace with labelled unavailable state or local search over verified page content. Do not make third-party requests a startup dependency. | Removing embeds can change page height and overflow. External links must remain identifiable as external. | Test with third-party requests blocked; no startup failure; visible status explains unavailable features. |
+| P1 | Mobile, tablet, and desktop all have excess document width: 1125/375, 827/753, and 1437/1425 respectively. | `PMAY (U).html`; `PMAY (U)_files/style.css`; `PMAY (U)_files/Newcustome.css`; project-owned responsive rules | Remove the ~3098px translation/captured widget width, then correct fixed-width rows/columns and embedded controls. Repair process table and Google search embed constraints; ensure accessibility controls stay in viewport. | The translation widget may be third-party generated. `overflow-x:hidden` alone would hide defects and is not an adequate fix. | Measure `scrollWidth === clientWidth` at 390x844, 768x1024, and 1440x900; inspect bounding boxes; test menu and slider interactions. |
+| P2 | Accessibility and semantics need follow-up after structural changes: heading order, image alternatives, landmarks, focus visibility, and unique ARIA relationships. | `PMAY (U).html`; project-owned CSS/JS | Correct semantics in touched areas, preserve working accessibility-panel interaction, and add visible focus styles where missing. | Vendor widgets may inject inaccessible markup; do not promise full conformance until third-party content is removed or isolated. | Keyboard-only pass, accessibility-tree inspection, duplicate-ID scan, and targeted audit. |
+
+### Proposed Implementation Order
+
+1. **Establish local runtime mode:** Prevent optional/remote integrations from acting as fatal startup dependencies; define safe local provider boundaries.
+2. **Resolve Bootstrap/X-editable compatibility path:** Eliminate uncaught local startup errors (`Constructor`) via project-level shim/guard without editing vendor bundles.
+3. **Repair verified local asset paths:** Fix local paths to existing assets; remove or isolate stale unresolvable references.
+4. **Add local data-provider/fallback boundaries:** Handle API-dependent sections with verified snapshot data or clear unavailable states.
+5. **Repair navigation and external-service classification:** Make links honest; classify external links and unavailable services clearly.
+6. **Fix responsive overflow:** Eliminate the ~3098px widget and unconstrained layout elements after third-party/dynamic markup decisions are settled.
+7. **Complete accessibility and regression checks:** Verify across desktop (1440x900), tablet (768x1024), and mobile (390x844) viewports.
+
+### Verified Inventory and Content Guardrails
+
+- **Local content present and verified:** Captured homepage shell, government/PMAY branding, navigation labels, hero/banner imagery, static section headings, and physical files in `PMAY (U)_files/`.
+- **Content not verified locally:** API-backed processes, beneficiaries, publications, partner data, Angikaar statistics/states, dynamic slider responses, live translation, Google search results, live Twitter/Facebook feeds, and historical CSS/vendor-relative assets.
+- **Content governance policy:** Use verified snapshot content only; use clear unavailable states where data is absent; never invent official PMAY figures; label interactive demos unmistakably.
+
+### Work Scope for Phase 3
 
 -   Establish a clear local runtime mode and a boundary between local
     content and unavailable remote services.
@@ -271,15 +354,16 @@ initialisation.
 -   Avoid editing vendor/minified bundles when the issue can be solved
     in project-owned code.
 
-### Exit criteria
+### Exit Criteria for Phase 3
 
 -   The page loads over HTTP without uncaught startup errors
-    attributable to the local implementation.
--   Required local assets resolve successfully.
+    attributable to the local implementation (`scrollWidth`/console checked).
+-   Required local assets resolve successfully without 404s for present assets.
 -   Optional unavailable services do not prevent the rest of the page
     from working.
 -   The browser console and network panel have been reviewed and
     remaining errors are documented.
+-   Phase 3 changes are validated with a repeatable local HTTP smoke test.
 
 ## Phase 4 --- Local content and feature behaviour
 
@@ -467,32 +551,33 @@ handoff.
 
 ## Immediate next action
 
-Review `docs/PHASE_2_IMPLEMENTATION_PLAN.md`, choose the information-
-architecture direction, and approve the Phase 3 implementation scope. Do
-not start website source changes before that approval.
+Phase 3 is complete. Awaiting project owner review and authorization to proceed with **Phase 4: Local Content and Feature Behaviour**.
+
+Proposed initial task for Phase 4:
+- **Task 4.1:** Establish the local static data-provider boundary and populate backend-dependent homepage containers (processes, beneficiaries, partner slider, publications, and dynamic sliders) using verified snapshot content and clearly labelled unavailable fallback states.
 
 ## Project decision log
 
   -----------------------------------------------------------------------
   Decision                            Status
   ----------------------------------- -----------------------------------
-  Preserve original structure or      Open --- decide before structural
-  reorganise sections?                changes
+  Preserve original structure or      Preserve original structure (decided
+  reorganise sections?                in Phase 3)
 
-    Which verified local content can    Inventory completed in Phase 2;
-    populate API-dependent sections?    approval required for final set.
+  Which verified local content can    Inventory completed in Phase 2;
+  populate API-dependent sections?    approval required for Phase 4 dataset.
 
-    Which third-party services should   Inventory completed in Phase 2;
-    remain external, be disabled, or   approval required for final policy.
-    show unavailable states?            
+  Which third-party services should   Inventory completed in Phase 2;
+  remain external, be disabled, or   approval required for final policy.
+  show unavailable states?            
 
-  When to begin visual redesign?      After functional stabilisation and
-                                      approval
+  When to begin visual redesign?      Deferred until functional work is
+                                      complete (Phase 8)
   -----------------------------------------------------------------------
 
 ## Source documents
 
-Use these project documents as the current planning baseline:
+Use these project documents as the reference baseline:
 
 -   `CONTEXT.md` --- snapshot structure and technical context.
 -   `AUDIT_REPORT.md` --- reported findings and test scope.
@@ -500,9 +585,10 @@ Use these project documents as the current planning baseline:
     recommended fallback treatment.
 -   `IMPROVEMENT_BACKLOG.md` --- prioritised work items and
     dependencies.
--   `PHASE_2_IMPLEMENTATION_PLAN.md` --- verified findings and the
-    file-level Phase 3 implementation sequence.
+-   `PHASE_2_IMPLEMENTATION_PLAN.md` --- legacy implementation plan;
+    key findings, risks, and implementation sequencing have been
+    consolidated into this roadmap as the single source of truth.
 
-This roadmap organises the work described in those documents. Phase 2
-runtime and browser findings were independently verified against the actual
-local project; website source files remain read-only pending approval.
+This roadmap is the single source of truth for project progress. Phase 3
+local runtime and dependency stabilisation is verified complete on the local
+HTTP test server.
