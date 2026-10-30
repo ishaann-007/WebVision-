@@ -1,0 +1,680 @@
+.process-report {
+    background: #db70a6;
+    text-align: center;
+}
+.process-report a {
+    color: #000;
+    font-size: 15px;
+}
+
+.process-report a:hover,
+.process-report a:focus {
+    color: #db70a6;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #6c1340 !important;
+    border-color: #0062cc;
+}
+.pmay-progress {
+    display: flex;
+}
+
+.pmay-progress .pad20 {
+    padding-bottom: 20px;
+}
+
+.service_icon_box {
+    padding: 10px 5px;
+    display: flex;
+    position: relative;
+    z-index: 00 !important;
+}
+
+.service_icon_box img {
+    border-radius: 28.1px;
+}
+
+.service_icon_box .icon img {
+    width: 40px;
+}
+
+.service_icon_box .icon span {
+    font-size: 36px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.service_icon_box .details p {
+    margin-bottom: 0;
+}
+
+.service_icon_box .icon {
+    border-radius: 50%;
+    display: inline-block;
+    height: 60px;
+    line-height: 57px;
+    text-align: center;
+}
+
+.service_icon_box .details h3 {
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.service_icon_box.box1 {
+    background: linear-gradient(135deg, #A32966, #DB70A6);
+    border-radius: 5px;
+}
+
+.service_icon_box.box2 {
+    background: linear-gradient(135deg, #A32966, #DB70A6);
+    border-radius: 5px;
+}
+
+.service_icon_box.box3 {
+    background: linear-gradient(135deg, #A32966, #DB70A6);
+    border-radius: 5px;
+}
+
+.service_icon_box.box4 {
+    background: linear-gradient(135deg, #A32966, #DB70A6);
+    border-radius: 5px;
+}
+
+.service_icon_box.box5 {
+    background: linear-gradient(135deg, #A32966, #DB70A6);
+    border-radius: 5px;
+}
+
+.service_icon_box.box6 {
+    background: linear-gradient(135deg, #A32966, #DB70A6);
+    border-radius: 5px;
+}
+
+.service_icon_box ul {
+    padding-top: 10px;
+}
+nav.navbar.bootsnav {
+    margin-bottom: 0;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    background-color: #fff;
+    border: none;
+    border-bottom: solid 0px #e0e0e0;
+    z-index: 9;
+}
+.service_icon_box .details h4 {
+    margin-top: 0px;
+    font-size: 9px;
+    color: #fff;
+}
+a {
+    color: #db70a6;
+    
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .pmay-progress .pad20 {
+        padding-bottom: 5px;
+    }
+    .service_icon_box .icon {
+        height: 41px;
+        line-height: 41px;
+    }
+    .service_icon_box .details h4 {
+        font-size: 8px;
+    }
+    #process-under-pmay .title-bottom {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1250px) {
+    .service_icon_box .details h3 {
+        font-size: 7px;
+    }
+    .service_icon_box .icon {
+        height: 45px;
+        line-height: 45px;
+    }
+    .service_icon_box.box5 {
+        margin-top: -12px;
+    }
+    .service_icon_box.box6 {
+        height: 62px;
+    }
+    .pmay-progress .pad20 {
+        padding-bottom: 10px;
+    }
+    div#home-slider {
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (min-width: 1251px) and (max-width: 1310px) {
+    .service_icon_box .details h3 {
+        font-size: 11px;
+    }
+    .pmay-progress .pad20 {
+        padding-bottom: 4px;
+    }
+}
+
+@media only screen and (min-width: 1311px) and (max-width: 1440px) {
+    .pmay-progress .pad20 {
+        padding-bottom: 15px;
+    }
+    .service_icon_box .details h3 {
+        font-size: 12px;
+    }
+}
+
+.affordable-house {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+.covid-title {
+    margin-top: 0px;
+    background: #9d0763;
+    padding: 5px;
+}
+
+.covid-link {
+    color: #fff;
+    font-weight: 600;
+    font-size: 9px;
+}
+
+.angikaar-title {
+    color: #000;
+    padding-bottom: 10px;
+}
+
+.slider-heading {
+    color: #6c1340;
+    padding: 15px;
+    /* background: #db70a6; */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.view-div {
+    text-align: left;
+    padding-bottom: 30px;
+}
+
+.view-more-btn {
+    background: #db70a6;
+    font-size: 15px;
+    color: white;
+    border-radius: 3px;
+}
+.btn-primary:hover {
+    color: #fff;
+    
+    border-color: #6c1340 !important;
+}
+.main-activities-status {
+    position: relative;
+    padding: 20px 0;
+    background: #0f7f8f;
+    background: -moz-linear-gradient(top, #0f7f8f 0%, #185784 100%);
+    background: -webkit-linear-gradient(top, #0f7f8f 0%, #185784 100%);
+    background: linear-gradient(to bottom, #0f7f8f 0%, #185784 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#0f7f8f', endColorstr='#185784', GradientType=0);
+}
+
+.wt {
+    padding-top: 20px;
+    padding: 0;
+}
+
+ul.tab li {
+    margin-bottom: 5px !important;
+    margin-left: 3% !important;
+    margin-right: 1% !important;
+    display: inline-block;
+}
+
+ul.tab li a {
+    display: block;
+    border-top: 6px solid #000;
+    background: url(https://darpg.gov.in/sites/all/themes/cmf/images/tab-arrow.png) no-repeat top center;
+    width: 120px;
+    height: 114px;
+    padding: 20px 0px;
+    color: #212121;
+    font-size: 120%;
+    text-transform: uppercase;
+}
+
+.tab a {
+    color: #000 !important;
+}
+
+ul.tab li a span.icon {
+    width: 43px;
+    height: 43px;
+    display: block;
+    margin: 0 auto;
+}
+
+ul.tab li {
+    margin-bottom: 5px !important;
+    margin-left: 2% !important;
+    margin-right: 1% !important;
+    display: inline-block;
+    border: 1px solid #000;
+    box-shadow: 1px 2px 10px #000;
+    background: #fff;
+    text-align: center;
+}
+
+ul.tab li a span.text {
+    font-size: 11px;
+}
+
+ul.tab li a:hover {
+    background: #d7df21;
+    transform: skew(-10deg);
+}
+
+.btn-primary {
+    border-color: #db70a6;
+}
+.main-activities-status1 {
+    position: relative;
+    background: #fed9a2;
+    padding: 20px 0;
+}
+
+.main-activities-status1 ul.tab li {
+    margin-left: 1% !important;
+}
+
+#exampleSlider,
+#exampleSlider1,
+#exampleSlider2,
+#exampleSlider3,
+#exampleSlider4,
+#exampleSlider5 {
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+#exampleSlider .MS-content,
+#exampleSlider1 .MS-content,
+#exampleSlider2 .MS-content,
+#exampleSlider3 .MS-content,
+#exampleSlider4 .MS-content,
+#exampleSlider5 .MS-content {
+    margin: 15px 5%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#exampleSlider .MS-content .item,
+#exampleSlider1 .MS-content .item,
+#exampleSlider2 .MS-content .item,
+#exampleSlider3 .MS-content .item,
+#exampleSlider5 .MS-content .item {
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+    padding: 5px;
+    border: 2px solid #929292;
+    width: 25%;
+}
+
+@media (max-width: 767px) {
+    #exampleSlider,
+    #exampleSlider1,
+    #exampleSlider2,
+    #exampleSlider3,
+    #exampleSlider4,
+    #exampleSlider5 {
+        border-color: transparent;
+    }
+    #exampleSlider .MS-content,
+    #exampleSlider1 .MS-content,
+    #exampleSlider2 .MS-content,
+    #exampleSlider3 .MS-content,
+    #exampleSlider4 .MS-content,
+    #exampleSlider5 .MS-content {
+        margin: 0;
+    }
+    #exampleSlider .MS-content .item {
+        width: 50%;
+    }
+    #exampleSlider .MS-controls button,
+    #exampleSlider1 .MS-controls button,
+    #exampleSlider2 .MS-controls button,
+    #exampleSlider3 .MS-controls button,
+    #exampleSlider4 .MS-controls button,
+    #exampleSlider5 .MS-controls button {
+        display: none;
+    }
+    #exampleSlider1 .MS-content .item {
+        width: 50%;
+    }
+}
+
+@media (max-width: 992px) {
+    #exampleSlider .MS-controls .MS-left {
+        left: -2px;
+    }
+    #exampleSlider .MS-content .item,
+    #exampleSlider1 .MS-content .item,
+    #exampleSlider2 .MS-content .item,
+    #exampleSlider3 .MS-content .item,
+    #exampleSlider4 .MS-content .item,
+    #exampleSlider5 .MS-content .item {
+        width: 33.3333%;
+    }
+    #exampleSlider .MS-controls .MS-right {
+        right: -2px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #exampleSlider .MS-content .item,
+    #exampleSlider1 .MS-content .item,
+    #exampleSlider2 .MS-content .item,
+    #exampleSlider3 .MS-content .item,
+    #exampleSlider4 .MS-content .item,
+    #exampleSlider5 .MS-content .item {
+        width: 25%;
+    }
+}
+
+#exampleSlider .MS-content .item p {
+    font-size: 30px;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+    margin: 0;
+    padding: 10px 0;
+}
+
+#exampleSlider .MS-controls button {
+    position: absolute;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    outline: 0;
+    top: 125px;
+    color: #6c1340;
+}
+
+#exampleSlider .MS-controls button:hover {
+    cursor: pointer;
+}
+
+#exampleSlider .MS-controls .MS-left {
+    left: 10px;
+}
+
+#exampleSlider .MS-controls .MS-right {
+    right: 10px;
+}
+
+#exampleSlider1 .MS-content .item p {
+    font-size: 30px;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+    margin: 0;
+    padding: 10px 0;
+}
+
+#exampleSlider1 .MS-controls button {
+    position: absolute;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    outline: 0;
+    top: 100px;
+    color: #6c1340;
+}
+
+#exampleSlider1 .MS-controls button:hover {
+    cursor: pointer;
+}
+
+#exampleSlider .MS-controls .MS-left {
+    left: 10px;
+}
+
+@media (max-width: 992px) {
+    #exampleSlider1 .MS-controls .MS-left {
+        left: -2px;
+    }
+}
+
+#exampleSlider1 .MS-controls .MS-right {
+    right: 10px;
+}
+
+@media (max-width: 992px) {
+    #exampleSlider1 .MS-controls .MS-right {
+        right: -2px;
+    }
+}
+
+@media (max-width: 767px) {
+    #exampleSlider2 .MS-content .item {
+        width: 50%;
+    }
+}
+
+#exampleSlider2 .MS-content .item p {
+    font-size: 30px;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+    margin: 0;
+    padding: 10px 0;
+}
+
+#exampleSlider2 .MS-controls button {
+    position: absolute;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    outline: 0;
+    top: 130px;
+    color: #6c1340;
+}
+
+#exampleSlider2 .MS-controls button:hover {
+    cursor: pointer;
+}
+
+#exampleSlider .MS-controls .MS-left {
+    left: 10px;
+}
+
+@media (max-width: 992px) {
+    #exampleSlider2 .MS-controls .MS-left {
+        left: -2px;
+    }
+}
+
+#exampleSlider2 .MS-controls .MS-right {
+    right: 10px;
+}
+
+@media (max-width: 992px) {
+    #exampleSlider2 .MS-controls .MS-right {
+        right: -2px;
+    }
+}
+
+@media (max-width: 767px) {
+    #exampleSlider3 .MS-content .item,
+    #exampleSlider5 .MS-content .item {
+        width: 50%;
+    }
+}
+
+#exampleSlider3 .MS-content .item p,
+#exampleSlider5 .MS-content .item p {
+    font-size: 30px;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+    margin: 0;
+    padding: 10px 0;
+}
+
+#exampleSlider3 .MS-controls button,
+#exampleSlider5 .MS-controls button {
+    position: absolute;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    outline: 0;
+    top: 130px;
+    color: #6c1340;
+}
+
+#exampleSlider3 .MS-controls button:hover,
+#exampleSlider5 .MS-controls button:hover {
+    cursor: pointer;
+}
+
+#exampleSlider .MS-controls .MS-left {
+    left: 10px;
+}
+
+@media (max-width: 992px) {
+    #exampleSlider3 .MS-controls .MS-left,
+    #exampleSlider5 .MS-controls .MS-left {
+        left: -2px;
+    }
+}
+
+#exampleSlider3 .MS-controls .MS-right,
+#exampleSlider5 .MS-controls .MS-right {
+    right: 10px;
+}
+
+@media (max-width: 992px) {
+    #exampleSlider3 .MS-controls .MS-right {
+        right: -2px;
+    }
+}
+
+#exampleSlider4 .MS-content .item {
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+    padding: 5px;
+    border: 2px solid #929292;
+    width: 14%;
+}
+
+@media (max-width: 767px) {
+    #exampleSlider4 .MS-content .item {
+        width: 50%;
+    }
+}
+
+#exampleSlider4 .MS-content .item p {
+    font-size: 30px;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+    margin: 0;
+    padding: 10px 0;
+}
+
+#exampleSlider4 .MS-controls button {
+    position: absolute;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    outline: 0;
+    top: 70px;
+    color: #c05f9a;
+}
+
+#exampleSlider4 .MS-controls button:hover {
+    cursor: pointer;
+}
+
+#exampleSlider .MS-controls .MS-left {
+    left: 10px;
+}
+
+@media (max-width: 992px) {
+    #exampleSlider4 .MS-controls .MS-left {
+        left: -2px;
+    }
+    #exampleSlider4 .MS-controls .MS-right {
+        right: -2px;
+    }
+}
+
+#exampleSlider4 .MS-controls .MS-right {
+    right: 10px;
+}
+
+.d-inline-block {
+    display: inline-block !important;
+    float: left;
+    padding: 3px;
+}
+
+.ulockd-main-title {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#tpopup1,
+#tpopup2,
+#tpopup3 {
+    position: absolute;
+    width: 40%;
+    background: #fff;
+    left: 28%;
+    top: 10%;
+    border-radius: 5px;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 0 10px 0 #000;
+    z-index: 9999;
+}
+
+#tclose,#tclose1,#tclose2 {
+    position: absolute;
+    background: black;
+    color: white;
+    right: -15px;
+    top: -15px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 8px;
+    font-weight: bold;
+    font-family: 'Arial Black', Arial, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #000;
+}

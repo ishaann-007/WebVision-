@@ -1,0 +1,6539 @@
+body {
+    font-family: "Noto Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+/*Header css start*/
+/* ================= TOP HEADER ================= */
+
+.top-header {
+    height: 115px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 55px;
+}
+
+.brand-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Government Logo */
+.gov-logo {
+    width: max-content;
+    height: fit-content;
+    object-fit: contain;
+    margin-top: 3px;
+}
+
+.ministry-text {
+    border-left: 1px solid #ddd;
+    padding-left: 18px;
+    color: #222;
+    height: 90px;
+}
+
+.ministry-text h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.ministry-text h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* PMAY Logo */
+.pmay-logo {
+    width: 100px;
+    height: max-content;
+    object-fit: contain;
+}
+
+.top-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.accessibility {
+    align-self: flex-start;
+    margin-top: 10px;
+    color: #743253;
+    font-size: 17px;
+}
+
+.font-size {
+    font-weight: bold;
+    color: #743253;
+}
+
+.search-box {
+    width: 280px;
+    height: 42px;
+    border: 1px solid #c8a3b7;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 15px;
+}
+
+.search-icon {
+    font-size: 35px;
+    color: #6d8090;
+    margin-top: -3px;
+}
+
+.apply-btn {
+    height: 42px;
+    padding: 0 20px;
+    border: 1px solid #c94f91;
+    background: #fff;
+    color: #743253;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.apply-btn:hover {
+    background: #c94f91;
+    color: #fff;
+    border-color: #c94f91;
+}
+
+.apply-btn:active {
+    transform: scale(0.98);
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    height: 49px;
+    background: #c94f91;
+    display: flex;
+    align-items: center;
+    padding-left: 0px;
+    position: relative;
+    z-index: 10;
+    background: #fff;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #ffe8f3;
+}
+
+/* Hamburger */
+.hamburger {
+    margin-left: auto;
+    width: 58px;
+    height: 49px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background 0.25s ease;
+}
+
+.hamburger>div {
+    width: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    display: block;
+    border-radius: 5px;
+    transition: all 0.25s ease;
+}
+
+.hamburger:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* ================= SIDEBAR ================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 99;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 330px;
+    height: 100vh;
+    background: white;
+    z-index: 100;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+    transition: 0.35s ease;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-header {
+    height: 70px;
+    background: #c94f91;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    color: white;
+}
+
+.sidebar-header h3 {
+    font-size: 20px;
+}
+
+.close-btn {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.25s ease;
+}
+
+.close-btn:hover {
+    background: #fff;
+    color: #c94f91;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 15px 0;
+}
+
+.sidebar-menu li {
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 16px 25px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar-menu a:hover {
+    background: #fcecf5;
+    color: #c94f91;
+}
+
+
+.navbar .nav-links li .apply_css {
+    margin: 0 !important;
+    padding: 4px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    color: #000;
+    box-shadow: 0px 0px 12px 5px #6c757d1f;
+    font-size: 15px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .top-header {
+        padding: 0 25px;
+    }
+
+    .pmay-logo {
+        margin-left: 20px;
+    }
+
+    .search-box {
+        width: 200px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 850px) {
+
+    .top-header {
+        height: 95px;
+    }
+
+    .gov-logo {
+        width: 55px;
+        height: 65px;
+    }
+
+    .ministry-text h3 {
+        font-size: 12px;
+    }
+
+    .ministry-text h2 {
+        font-size: 14px;
+    }
+
+    .pmay-logo {
+        width: 130px;
+        height: 65px;
+    }
+
+    .search-box,
+    .apply-btn,
+    .accessibility {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .navbar {
+        padding-left: 15px;
+    }
+
+    .hamburger {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .top-header {
+        padding: 0 15px;
+    }
+
+    .brand-area {
+        gap: 8px;
+    }
+
+    .gov-logo {
+        width: 45px;
+        height: 55px;
+    }
+
+    .ministry-text {
+        padding-left: 8px;
+    }
+
+    .ministry-text h3 {
+        font-size: 10px;
+    }
+
+    .ministry-text h2 {
+        font-size: 11px;
+    }
+
+    .pmay-logo {
+        width: 100px;
+        margin-left: 8px;
+    }
+
+    .sidebar {
+        width: 85%;
+    }
+}
+
+/*Header css end*/
+body {
+    font-family: "Noto Sans", sans-serif;
+}
+
+/*Header css start*/
+
+
+
+
+/* Carousel Indicators */
+.Pmay_banner_section .carousel-indicators {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    margin: 0;
+    padding: 5px 8px;
+    background: #FAEBF2;
+    /* border: 2px solid #a83e76; */
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Individual dots */
+.Pmay_banner_section .carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    background-color: #DB70A6;
+    opacity: 1;
+
+    transition: all 0.3s ease;
+}
+
+/* Active dot */
+.Pmay_banner_section .carousel-indicators .active {
+    background-color: #A32966;
+    transform: scale(1.05);
+}
+
+
+.Pmay_banner_section .carousel-inner .carousel-item {
+      margin-top: 155px;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   PMAY-U 2.0 AT A GLANCE
+   COMPLETE CSS
+========================================= */
+
+/* =========================================
+   MAIN SECTION
+========================================= */
+
+.pmay-section {
+    width: 100%;
+    max-width: 1800px;
+    margin: 20px auto;
+    padding: 20px 25px;
+
+    background: #ffffff;
+    border: none;
+    border-radius: 0;
+}
+
+.pmay-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+}
+
+
+/* =========================================
+   LEFT SIDE - AT A GLANCE
+========================================= */
+
+.glance-area {
+    flex: 1;
+    min-width: 0;
+}
+
+.section-title {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #163f73;
+    margin-bottom: 14px;
+}
+
+
+/* =========================================
+   LEFT CARDS
+========================================= */
+
+.glance-cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.glance-card {
+    width: 100%;
+    min-height: 185px;
+
+    padding: 15px 10px 16px;
+
+    background: #ffffff;
+    border: 1px solid #e2e8ef;
+    border-radius: 10px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    transition: all 0.25s ease;
+}
+
+.glance-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================================
+   MAIN ICONS
+   ONLY #c94f91 COLOR
+========================================= */
+
+.icon-circle {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 13px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+    border: 2px solid #c94f91;
+
+    color: #c94f91;
+
+    flex-shrink: 0;
+}
+
+.icon-circle svg {
+    width: 30px;
+    height: 30px;
+
+    stroke: #c94f91;
+    fill: none;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================
+   CARD NUMBERS
+========================================= */
+
+.card-number {
+    color: #163f73;
+
+    font-size: 26px;
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    margin-bottom: 9px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   CARD LABEL
+========================================= */
+
+.card-label {
+    color: #315c8b;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    line-height: 1.35;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   CENTER DIVIDER
+========================================= */
+
+.vertical-divider {
+    width: 1px;
+
+    min-height: 205px;
+
+    background: #d9e0e8;
+
+    opacity: 1;
+
+    align-self: stretch;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   RIGHT SIDE - FOUR VERTICALS
+========================================= */
+
+.verticals-area {
+    width: 39%;
+    min-width: 390px;
+}
+
+.verticals-title {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #163f73;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================
+   RIGHT CARD GRID
+========================================= */
+
+.vertical-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 13px;
+}
+
+
+/* =========================================
+   RIGHT CARDS
+========================================= */
+
+.vertical-card {
+    width: 100%;
+    min-height: 75px;
+
+    padding: 12px 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8ef;
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    transition: all 0.25s ease;
+}
+
+.vertical-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================================
+   RIGHT SIDE ICONS
+   ONLY #c94f91 COLOR
+========================================= */
+
+.vertical-icon {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 2px solid #c94f91;
+
+    color: #c94f91;
+}
+
+.vertical-icon svg {
+    width: 23px;
+    height: 23px;
+
+    stroke: #c94f91;
+    fill: none;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================
+   RIGHT CARD CONTENT
+========================================= */
+
+.vertical-content {
+    min-width: 0;
+}
+
+.vertical-name {
+    color: #163f73;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    margin-bottom: 4px;
+}
+
+.vertical-description {
+    color: #315c8b;
+
+    font-size: 14.5px;
+    font-weight: 500;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .pmay-wrapper {
+        flex-direction: column;
+    }
+
+    .vertical-divider {
+        width: 100%;
+        height: 1px;
+        min-height: 1px;
+
+        margin: 5px 0;
+    }
+
+    .verticals-area {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .glance-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* =========================================
+   TABLET / SMALL LAPTOP
+========================================= */
+
+@media (max-width: 850px) {
+
+    .pmay-section {
+        padding: 20px;
+    }
+
+    .glance-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vertical-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .glance-card {
+        min-height: 175px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .pmay-section {
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    .pmay-wrapper {
+        gap: 18px;
+    }
+
+    .section-title,
+    .verticals-title {
+        font-size: 19px;
+        margin-bottom: 12px;
+    }
+
+    .glance-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 9px;
+    }
+
+    .glance-card {
+        min-height: 160px;
+        padding: 12px 6px;
+    }
+
+    .icon-circle {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    .icon-circle svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .card-number {
+        font-size: 21px;
+        margin-bottom: 7px;
+    }
+
+    .card-label {
+        font-size: 12px;
+    }
+
+    .vertical-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .vertical-card {
+        min-height: 70px;
+        padding: 11px 12px;
+    }
+
+    .vertical-icon {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+    }
+
+    .vertical-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .vertical-name {
+        font-size: 16px;
+    }
+
+    .vertical-description {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .pmay-section {
+        padding: 12px;
+    }
+
+    .glance-cards {
+        gap: 7px;
+    }
+
+    .glance-card {
+        min-height: 150px;
+        padding: 10px 5px;
+    }
+
+    .icon-circle {
+        width: 46px;
+        height: 46px;
+    }
+
+    .icon-circle svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .card-number {
+        font-size: 18px;
+    }
+
+    .card-label {
+        font-size: 11px;
+    }
+}
+
+/* ==========================================
+   PMAY-U 2.0 - ELIGIBILITY SECTION
+   THEME COLOR: #c94f91
+========================================== */
+
+.eligibility-section {
+    width: 100%;
+    max-width: 1755px;
+    margin: 20px auto;
+    padding: 24px 28px;
+    background: #fff7fb;
+    border: 1px solid #f3dce8;
+    border-radius: 10px;
+}
+
+
+/* ==========================================
+   MAIN FLEX WRAPPER
+========================================== */
+
+.eligibility-wrapper {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+/* ==========================================
+   LEFT INTRO
+========================================== */
+
+.eligibility-intro {
+    width: 40%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================================
+   ILLUSTRATION
+========================================== */
+
+.eligibility-illustration {
+    width: 205px;
+    min-width: 205px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eligibility-illustration svg {
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+
+/* ==========================================
+   TITLE CONTENT
+========================================== */
+
+.eligibility-title-content {
+    min-width: 0;
+}
+
+.eligibility-title-content h2 {
+    margin: 0 0 10px;
+
+    color: #c94f91;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    line-height: 1.15;
+}
+
+.eligibility-title-content p {
+    margin: 0;
+
+    color: #8f3a67;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    line-height: 1.45;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   DIVIDER
+========================================== */
+
+.eligibility-divider {
+    width: 2px;
+    height: 145px;
+
+    flex-shrink: 0;
+
+    background: #e8b5cf;
+}
+
+
+/* ==========================================
+   QUESTIONS AREA
+========================================== */
+
+.eligibility-questions {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+
+    min-width: 0;
+}
+
+
+/* ==========================================
+   QUESTION
+========================================== */
+
+.eligibility-question {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    color: #8f3a67;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    line-height: 1.3;
+}
+
+
+/* ==========================================
+   QUESTION ICON
+========================================== */
+
+.question-icon {
+    width: 30px;
+    height: 30px;
+
+    flex: 0 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #c94f91;
+}
+
+.question-icon svg {
+    width: 27px;
+    height: 27px;
+
+    fill: none;
+
+    stroke: #c94f91;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ==========================================
+   BUTTON AREA
+========================================== */
+
+.eligibility-action {
+    width: 175px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.eligibility-button {
+    width: 175px;
+    min-height: 45px;
+
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    background: #c94f91;
+
+    border: 1px solid #c94f91;
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.eligibility-button:hover {
+    background: #a93d75;
+    border-color: #a93d75;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 5px 14px rgba(201, 79, 145, 0.25);
+}
+
+.eligibility-button svg {
+    width: 19px;
+    height: 19px;
+
+    fill: none;
+
+    stroke: #ffffff;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================================
+   LARGE TABLET
+========================================== */
+
+@media (max-width: 1150px) {
+
+    .eligibility-section {
+        padding: 22px;
+    }
+
+    .eligibility-wrapper {
+        gap: 20px;
+    }
+
+    .eligibility-intro {
+        width: 38%;
+        gap: 12px;
+    }
+
+    .eligibility-illustration {
+        width: 160px;
+        min-width: 160px;
+    }
+
+    .eligibility-title-content h2 {
+        font-size: 24px;
+    }
+
+    .eligibility-title-content p {
+        font-size: 14px;
+        white-space: normal;
+    }
+
+    .eligibility-action,
+    .eligibility-button {
+        width: 155px;
+    }
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+    .eligibility-wrapper {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .eligibility-intro {
+        width: calc(100% - 180px);
+    }
+
+    .eligibility-action {
+        width: 160px;
+    }
+
+    .eligibility-divider {
+        display: none;
+    }
+
+    .eligibility-questions {
+        width: 100%;
+        flex: 1 1 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 14px 25px;
+    }
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+
+    .eligibility-section {
+        margin: 15px auto;
+        padding: 18px;
+
+        border-radius: 8px;
+    }
+
+    .eligibility-wrapper {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 20px;
+    }
+
+    .eligibility-intro {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    .eligibility-illustration {
+        width: 145px;
+        min-width: 145px;
+    }
+
+    .eligibility-title-content h2 {
+        font-size: 22px;
+    }
+
+    .eligibility-title-content p {
+        font-size: 13px;
+        white-space: normal;
+    }
+
+    .eligibility-questions {
+        width: 100%;
+
+        display: flex;
+
+        gap: 12px;
+    }
+
+    .eligibility-question {
+        font-size: 15px;
+    }
+
+    .eligibility-action {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .eligibility-button {
+        width: 100%;
+        max-width: 230px;
+    }
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 420px) {
+
+    .eligibility-intro {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .eligibility-illustration {
+        width: 170px;
+        min-width: 170px;
+    }
+
+    .eligibility-title-content h2 {
+        font-size: 21px;
+    }
+
+    .eligibility-title-content p {
+        font-size: 13px;
+    }
+
+    .eligibility-question {
+        font-size: 12.5px;
+    }
+
+    .question-icon {
+        width: 27px;
+        height: 27px;
+
+        flex-basis: 27px;
+    }
+
+    .question-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* =========================================================
+   PMAY-U 2.0
+   ABOUT / INTRODUCTION SECTION
+   MAIN THEME: #c94f91
+========================================================= */
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.pmay-about-section {
+    width: 100%;
+    max-width: 1800px;
+
+    margin: 0 auto;
+
+    padding: 25px 6%;
+
+    background: #ffffff;
+    text-align: justify;
+
+
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.pmay-about-container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    align-items: center;
+    gap: 75px;
+}
+
+
+/* =========================================================
+   LEFT IMAGE AREA
+========================================================= */
+
+.pmay-about-image {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Image wrapper */
+
+.pmay-house-frame {
+    width: 100%;
+    max-width: 490px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/* Actual image */
+
+.pmay-house-frame img {
+    width: 100%;
+    max-width: 490px;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   RIGHT CONTENT
+========================================================= */
+
+.pmay-about-content {
+    width: 100%;
+
+    padding: 5px 0;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.pmay-about-content h2 {
+    margin: 0 0 16px;
+
+    color: #A32966;
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    letter-spacing: -0.3px;
+}
+
+
+/* =========================================================
+   PARAGRAPHS
+========================================================= */
+
+.pmay-about-content p {
+    margin: 0 0 20px;
+    color: #263f5d;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.75;
+    text-align: justify;
+}
+
+
+/* =========================================================
+   READ MORE BUTTON
+========================================================= */
+
+.pmay-read-more {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 115px;
+
+    padding: 11px 18px;
+
+    margin-top: 3px;
+
+    background: #c94f91;
+
+    color: #ffffff;
+
+    border: 1px solid #c94f91;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Arrow */
+
+.pmay-read-more svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+
+    stroke: #ffffff;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* Hover */
+
+.pmay-read-more:hover {
+    background: #a83e76;
+
+    border-color: #a83e76;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 16px rgba(201, 79, 145, 0.25);
+}
+
+
+.pmay-read-more:hover svg {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .pmay-about-section {
+        padding: 45px 4%;
+    }
+
+    .pmay-about-container {
+        grid-template-columns: 38% 62%;
+
+        gap: 35px;
+    }
+
+    .pmay-about-content h2 {
+        font-size: 28px;
+    }
+
+    .pmay-about-content p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .pmay-about-section {
+        padding: 40px 5%;
+    }
+
+    .pmay-about-container {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        max-width: 750px;
+    }
+
+    .pmay-about-image {
+        order: 1;
+    }
+
+    .pmay-about-content {
+        order: 2;
+
+        text-align: center;
+    }
+
+    .pmay-about-content h2 {
+        font-size: 28px;
+    }
+
+    .pmay-about-content p {
+        text-align: left;
+    }
+
+    .pmay-read-more {
+        margin-top: 0;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .pmay-about-section {
+        padding: 30px 18px;
+    }
+
+    .pmay-about-container {
+        gap: 25px;
+    }
+
+    .pmay-house-frame {
+        max-width: 380px;
+    }
+
+    .pmay-about-content h2 {
+        margin-bottom: 13px;
+
+        font-size: 24px;
+
+        line-height: 1.3;
+    }
+
+    .pmay-about-content p {
+        margin-bottom: 16px;
+
+        font-size: 13.5px;
+
+        line-height: 1.65;
+    }
+
+    .pmay-read-more {
+        min-width: 110px;
+
+        padding: 10px 15px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .pmay-about-section {
+        padding: 25px 15px;
+    }
+
+    .pmay-about-content h2 {
+        font-size: 21px;
+    }
+
+    .pmay-about-content p {
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+    .pmay-read-more {
+        padding: 10px 14px;
+    }
+}
+
+/* =========================================================
+   PMAY-U 2.0
+   STATES / UTs SECTION
+   THEME COLOR: #c94f91
+========================================================= */
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.pmay-states-section {
+    width: 100%;
+    max-width: 1800px;
+    margin: 25px auto;
+    padding: 42px 55px 55px;
+    background: #fff0f7;
+    border: 1px solid #f0d9e5;
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.pmay-states-container {
+    width: 100%;
+
+    /* display: grid;
+
+    grid-template-columns: 270px 1fr;
+
+    gap: 35px;
+
+    align-items: center; */
+}
+
+
+/* =========================================================
+   LEFT HEADING
+========================================================= */
+
+.pmay-states-heading {
+    text-align: center;
+
+    padding: 20px 10px;
+}
+
+.pmay-states-heading h2 {
+    margin: 0;
+    color: #A32966;
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+.pmay-states-heading h3 {
+    margin: 8px 0 0;
+
+    color: #334d68;
+
+    font-size: 35px;
+    font-weight: 700;
+
+    line-height: 1.1;
+}
+
+
+/* =========================================================
+   CARDS CONTAINER
+========================================================= */
+
+.pmay-states-cards {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   STATE CARD
+========================================================= */
+
+.state-card {
+    width: 100%;
+
+    min-height: 265px;
+
+    background: #ffffff;
+
+    border: 1px solid #e3e5e9;
+
+    border-radius: 3px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 8px rgba(39, 47, 60, 0.13);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.state-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 18px rgba(201, 79, 145, 0.15);
+}
+
+
+/* =========================================================
+   TOP AREA
+========================================================= */
+
+.state-top {
+    height: 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-bottom: 1px solid #d8d8d8;
+}
+
+
+/* =========================================================
+   MAP AREA
+========================================================= */
+
+.state-map {
+    width: 58%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/*
+   Temporary map representation.
+
+   Replace .map-shape with actual state SVG/map
+   whenever you have the original map assets.
+*/
+
+.map-shape {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    background: #c94f91;
+
+    clip-path: polygon(20% 5%,
+            55% 0%,
+            90% 18%,
+            78% 43%,
+            95% 65%,
+            62% 96%,
+            25% 82%,
+            5% 55%,
+            13% 25%);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    opacity: 0.85;
+}
+
+
+/* =========================================================
+   APPROVED TOWNS
+========================================================= */
+
+.approved {
+    width: 42%;
+
+    height: 70%;
+
+    padding-left: 12px;
+
+    border-left: 1px solid #b9b9b9;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.approved span {
+    color: #52677e;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.15;
+}
+
+.approved strong {
+    margin-top: 6px;
+
+    color: #c94f91;
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DETAILS AREA
+========================================================= */
+
+.state-details {
+    display: grid;
+
+    grid-template-columns: 43% 57%;
+
+    min-height: 105px;
+}
+
+
+/* =========================================================
+   HOUSES
+========================================================= */
+
+.houses {
+    padding: 12px 8px;
+
+    text-align: center;
+
+    border-right: 1px solid #cfcfcf;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+}
+
+.houses span {
+    color: #52677e;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.houses strong {
+    margin-top: 8px;
+
+    color: #c94f91;
+
+    font-size: 16px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DEMAND
+========================================================= */
+
+.demand {
+    padding: 11px 9px;
+}
+
+.demand-title {
+    display: block;
+    color: #52677e;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.demand>strong {
+    display: block;
+
+    color: #c94f91;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   SCHEME ROW
+========================================================= */
+
+.scheme-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 5px;
+
+    margin-bottom: 3px;
+}
+
+.scheme-row span {
+    color: #52677e;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+.scheme-row b {
+    color: #c94f91;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   STATE NAME
+========================================================= */
+
+.state-name {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    color: #000;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-align: center;
+    border-top: 1px solid #eeeeee;
+}
+
+
+/* =========================================================
+   READ MORE
+========================================================= */
+
+.states-read-more-wrap {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 38px;
+
+    padding-right: 10px;
+}
+
+.states-read-more {
+    min-width: 112px;
+
+    padding: 11px 16px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background: #c94f91;
+
+    color: #ffffff;
+
+    border: 1px solid #c94f91;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.states-read-more span {
+    font-size: 17px;
+
+    line-height: 10px;
+}
+
+.states-read-more:hover {
+    background: #a83e76;
+
+    border-color: #a83e76;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 14px rgba(201, 79, 145, 0.25);
+}
+
+
+/* =========================================================
+   LARGE LAPTOP
+========================================================= */
+
+@media (max-width: 1250px) {
+
+    .pmay-states-section {
+        padding: 38px 35px 45px;
+    }
+
+    .pmay-states-container {
+        grid-template-columns: 220px 1fr;
+
+        gap: 25px;
+    }
+
+    .pmay-states-heading h2 {
+        font-size: 39px;
+    }
+
+    .pmay-states-heading h3 {
+        font-size: 29px;
+    }
+
+    .pmay-states-cards {
+        gap: 14px;
+    }
+
+    .state-card {
+        min-height: 250px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .pmay-states-container {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .pmay-states-heading {
+        padding: 0;
+    }
+
+    .pmay-states-heading h2 {
+        font-size: 38px;
+    }
+
+    .pmay-states-heading h3 {
+        font-size: 28px;
+    }
+
+    .pmay-states-cards {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+    .state-card {
+        min-height: 260px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .pmay-states-section {
+        margin: 15px auto;
+
+        padding: 28px 15px 35px;
+
+        border-radius: 8px;
+    }
+
+    .pmay-states-heading h2 {
+        font-size: 31px;
+    }
+
+    .pmay-states-heading h3 {
+        font-size: 24px;
+    }
+
+    .pmay-states-cards {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .state-card {
+        max-width: 420px;
+
+        margin: 0 auto;
+
+        min-height: 255px;
+    }
+
+    .states-read-more-wrap {
+        justify-content: center;
+
+        margin-top: 25px;
+
+        padding-right: 0;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .pmay-states-heading h2 {
+        font-size: 27px;
+    }
+
+    .pmay-states-heading h3 {
+        font-size: 21px;
+    }
+
+    .state-card {
+        min-height: 245px;
+    }
+
+    .state-top {
+        height: 92px;
+    }
+
+    .map-shape {
+        width: 62px;
+        height: 62px;
+    }
+
+    .approved span {
+        font-size: 12px;
+    }
+
+    .approved strong {
+        font-size: 16px;
+    }
+
+    .houses span {
+        font-size: 12px;
+    }
+
+    .houses strong {
+        font-size: 15px;
+    }
+}
+
+/* =========================================================
+   PMAY-U 2.0
+   WHAT'S NEW / NEWS SECTION
+   THEME COLOR: #c94f91
+========================================================= */
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.pmay-news-section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 3% 55px;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.pmay-news-container {
+    width: 100%;
+    max-width: 1800px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.pmay-news-heading {
+    width: 100%;
+
+    margin-bottom: 30px;
+
+    text-align: left;
+
+    line-height: 0.85;
+}
+
+.news-title-top {
+    display: block;
+
+    color: #c94f91;
+
+    font-size: 52px;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+}
+
+.news-title-bottom {
+    display: block;
+
+    margin-left: 72px;
+
+    color: #344b63;
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    letter-spacing: -2px;
+}
+
+
+/* =========================================================
+   NEWS GRID
+========================================================= */
+
+.pmay-news-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   NEWS CARD
+========================================================= */
+
+.pmay-news-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #eadbe4;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 10px rgba(45, 54, 68, 0.07);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.pmay-news-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #e2b3cc;
+
+    box-shadow:
+        0 9px 22px rgba(201, 79, 145, 0.14);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.news-image {
+    width: 100%;
+
+    height: 190px;
+
+    overflow: hidden;
+
+    background: #fff1f7;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.pmay-news-card:hover .news-image img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.news-content {
+    padding: 17px 16px 19px;
+
+    min-height: 185px;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   NEWS TITLE
+========================================================= */
+
+.news-content h3 {
+    margin: 0 0 12px;
+    color: #263f5d;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.news-date {
+    margin-bottom: 15px;
+
+    color: #758496;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   READ MORE
+========================================================= */
+
+.news-read-more {
+    margin-top: auto;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    width: fit-content;
+
+    color: #c94f91;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        gap 0.2s ease;
+}
+
+.news-read-more span {
+    font-size: 17px;
+
+    line-height: 12px;
+}
+
+.news-read-more:hover {
+    color: #a83e76;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.pmay-news-footer {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   VIEW ALL BUTTON
+========================================================= */
+
+.news-view-all {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 11px 19px;
+
+    background: #c94f91;
+
+    color: #ffffff;
+
+    border: 1px solid #c94f91;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.news-view-all span {
+    font-size: 17px;
+
+    line-height: 10px;
+}
+
+.news-view-all:hover {
+    background: #a83e76;
+
+    border-color: #a83e76;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(201, 79, 145, 0.25);
+}
+
+
+/* =========================================================
+   LARGE LAPTOP
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .pmay-news-section {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .pmay-news-grid {
+        gap: 18px;
+    }
+
+    .news-image {
+        height: 175px;
+    }
+
+    .news-content {
+        padding: 15px;
+    }
+
+    .news-content h3 {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .pmay-news-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
+    }
+
+    .news-image {
+        height: 200px;
+    }
+
+    .news-content {
+        min-height: 170px;
+    }
+
+    .news-title-top {
+        font-size: 45px;
+    }
+
+    .news-title-bottom {
+        font-size: 37px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .pmay-news-section {
+        padding: 35px 18px 40px;
+    }
+
+    .pmay-news-heading {
+        margin-bottom: 22px;
+    }
+
+    .news-title-top {
+        font-size: 38px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .news-title-bottom {
+        margin-left: 52px;
+
+        font-size: 32px;
+    }
+
+    .pmay-news-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .pmay-news-card {
+        max-width: 500px;
+
+        margin: 0 auto;
+    }
+
+    .news-image {
+        height: 210px;
+    }
+
+    .news-content {
+        min-height: 160px;
+
+        padding: 16px;
+    }
+
+    .news-content h3 {
+        font-size: 15px;
+    }
+
+    .news-date {
+        font-size: 12.5px;
+    }
+
+    .pmay-news-footer {
+        justify-content: center;
+
+        margin-top: 25px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .pmay-news-section {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .news-title-top {
+        font-size: 34px;
+    }
+
+    .news-title-bottom {
+        margin-left: 45px;
+
+        font-size: 29px;
+    }
+
+    .news-image {
+        height: 185px;
+    }
+}
+
+/* =========================================
+   COMMON SECTION HEADING STYLE
+   SAME AS: PMAY-U 2.0 At a Glance
+========================================= */
+
+.pmay-common-heading {
+    margin: 0 0 14px;
+
+    color: #A32966;
+
+
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: 0;
+
+    text-align: left;
+}
+
+
+/* =========================================
+   WHAT'S NEW HEADING
+========================================= */
+
+.pmay-news-heading {
+    width: 100%;
+
+    margin: 0 0 14px;
+
+    text-align: left;
+
+    line-height: 1.2;
+}
+
+.pmay-news-heading .news-title-top,
+.pmay-news-heading .news-title-bottom {
+    display: inline;
+
+    margin: 0;
+
+    color: #A32966;
+
+
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: 0;
+}
+
+
+/* Remove old What's/New styling */
+.pmay-news-heading .news-title-bottom {
+    margin-left: 0;
+}
+
+
+/* =========================================
+   STATES / UTS HEADING
+========================================= */
+
+.pmay-states-heading {
+    width: 100%;
+
+    margin: 0 0 14px;
+
+    padding: 0;
+
+    text-align: left;
+
+    line-height: 1.2;
+}
+
+.pmay-states-heading h2,
+.pmay-states-heading h3 {
+    display: inline;
+
+    margin: 0;
+
+    padding: 0;
+
+    color: #A32966;
+
+
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: 0;
+}
+
+
+/* Remove old PMAY / States styling */
+.pmay-states-heading h3 {
+    margin-left: 0;
+}
+
+
+/* =========================================
+   OPTIONAL:
+   IF YOU WANT A DIRECT HEADING TEXT
+========================================= */
+
+.section-main-heading {
+    margin: 0 0 14px;
+
+    color: #163f73;
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    text-align: left;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .pmay-common-heading,
+    .pmay-news-heading .news-title-top,
+    .pmay-news-heading .news-title-bottom,
+    .pmay-states-heading h2,
+    .pmay-states-heading h3,
+    .section-main-heading {
+        font-size: 22px;
+
+        line-height: 1.25;
+    }
+}
+
+/* =========================================================
+   PMAY-U 2.0
+   UPDATES / EVENTS / MEDIA SECTION
+
+   MAIN THEME:
+   #c94f91
+========================================================= */
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.pmay-info-section {
+    width: 100%;
+    padding: 35px 3% 50px;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.pmay-info-container {
+    width: 100%;
+    max-width: 1800px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.pmay-info-card {
+    width: 100%;
+
+    min-height: 310px;
+
+    background: #ffffff;
+
+    border: 1px solid #ead7e3;
+
+    border-radius: 9px;
+
+    padding: 15px 16px 10px;
+
+    box-shadow:
+        0 2px 8px rgba(34, 54, 75, 0.06);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.pmay-info-card:hover {
+    border-color: #ddb0c9;
+
+    box-shadow:
+        0 7px 18px rgba(201, 79, 145, 0.11);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.info-card-header {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-bottom: 10px;
+
+    margin-bottom: 2px;
+
+    border-bottom: 1px solid #edf0f3;
+}
+
+
+/* Heading */
+
+.info-card-header h2 {
+    margin: 0;
+
+    color: #c94f91;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+/* View All */
+
+.view-all {
+    color: #c94f91;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.2s ease;
+}
+
+.view-all:hover {
+    color: #a83e76;
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.info-list {
+    width: 100%;
+}
+
+
+/* =========================================================
+   UPDATE / EVENT ITEM
+========================================================= */
+
+.info-item {
+    padding: 11px 0 12px;
+
+    border-bottom: 1px solid #edf0f3;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.info-meta {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 6px;
+
+    color: #738397;
+
+    font-size: 13.5px;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   TAG
+========================================================= */
+
+.info-tag {
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: #fff0f7;
+    color: #c94f91;
+    font-size: 12.5px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+
+/* Event */
+
+.event-tag {
+    background: #fceaf3;
+
+    color: #c94f91;
+}
+
+
+/* Workshop */
+
+.workshop-tag {
+    background: #f8e5ef;
+
+    color: #a83e76;
+}
+
+
+/* =========================================================
+   ITEM TITLE
+========================================================= */
+
+.info-item h3 {
+    margin: 0 0 6px;
+    color: #214d7d;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   READ MORE
+========================================================= */
+
+.info-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #c94f91;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.info-read-more span {
+    font-size: 15px;
+
+    line-height: 10px;
+}
+
+.info-read-more:hover {
+    color: #a83e76;
+
+    gap: 9px;
+}
+
+
+/* =========================================================
+   MEDIA LIST
+========================================================= */
+
+.media-list {
+    width: 100%;
+}
+
+
+/* =========================================================
+   MEDIA ITEM
+========================================================= */
+
+.media-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 8px 0 9px;
+
+    border-bottom: 1px solid #edf0f3;
+}
+
+.media-item:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   MEDIA IMAGE
+========================================================= */
+
+.media-image {
+    width: 94px;
+    height: 64px;
+
+    flex: 0 0 94px;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    background: #fff0f7;
+}
+
+.media-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.media-item:hover .media-image img {
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   MEDIA CONTENT
+========================================================= */
+
+.media-content {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+/* =========================================================
+   MEDIA TITLE
+========================================================= */
+
+.media-content h3 {
+    margin: 0 0 6px;
+    color: #214d7d;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   MEDIA META
+========================================================= */
+
+.media-meta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #718197;
+
+    font-size: 13.5px;
+
+    line-height: 1.2;
+}
+
+.media-meta i {
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #c94f91;
+
+    display: inline-block;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .pmay-info-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .media-card {
+        grid-column: span 2;
+    }
+
+    .media-list {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 15px;
+    }
+
+    .media-item {
+        border-bottom: none;
+
+        border-right: 1px solid #edf0f3;
+
+        padding-right: 12px;
+    }
+
+    .media-item:last-child {
+        border-right: none;
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .pmay-info-section {
+        padding: 30px 4%;
+    }
+
+    .pmay-info-container {
+        grid-template-columns: 1fr;
+    }
+
+    .media-card {
+        grid-column: auto;
+    }
+
+    .media-list {
+        display: block;
+    }
+
+    .media-item {
+        border-right: none;
+
+        border-bottom: 1px solid #edf0f3;
+
+        padding: 10px 0;
+    }
+
+    .media-item:last-child {
+        border-bottom: none;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .pmay-info-section {
+        padding: 25px 15px 35px;
+    }
+
+    .pmay-info-container {
+        gap: 15px;
+    }
+
+    .pmay-info-card {
+        min-height: auto;
+
+        padding: 14px 13px 8px;
+
+        border-radius: 8px;
+    }
+
+    .info-card-header h2 {
+        font-size: 17px;
+    }
+
+    .view-all {
+        font-size: 10px;
+    }
+
+    .info-item {
+        padding: 11px 0;
+    }
+
+    .info-item h3 {
+        font-size: 12.5px;
+    }
+
+    .media-image {
+        width: 85px;
+        height: 60px;
+
+        flex-basis: 85px;
+    }
+
+    .media-content h3 {
+        font-size: 12px;
+    }
+}
+
+/* =========================================================
+   PMAY-U 2.0
+   QUICK ACCESS SECTION
+   THEME: #c94f91
+========================================================= */
+
+.pmay-quick-access {
+    width: 100%;
+    padding: 50px 0 25px;
+    background: #ffffff;
+
+
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.quick-access-inner {
+    width: 100%;
+    max-width: 1800px;
+
+    margin: 0 auto;
+
+    padding: 9px 16px 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7edf3;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 2px 8px rgba(30, 60, 90, 0.04);
+}
+
+
+/* =========================================================
+   HEADING
+   Same style as PMAY-U 2.0 At a Glance
+========================================================= */
+
+.quick-access-title {
+    margin: 0 0 7px;
+
+    color: #163f73;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.quick-access-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   ACCESS CARD
+========================================================= */
+
+.quick-access-card {
+    min-height: 54px;
+
+    padding: 7px 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background:
+        linear-gradient(90deg,
+            #fff7fb 0%,
+            #f7faff 100%);
+
+    border: 1px solid #edf1f5;
+
+    border-radius: 9px;
+
+    color: #163f73;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.quick-access-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #e5b5cf;
+
+    background: #fff7fb;
+
+    box-shadow:
+        0 5px 14px rgba(201, 79, 145, 0.12);
+
+    color: #163f73;
+}
+
+
+/* =========================================================
+   ICON CIRCLE
+========================================================= */
+
+.quick-access-icon {
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fff0f7;
+
+    color: #c94f91;
+
+    border: 1px solid #f0c8dc;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.quick-access-card:hover .quick-access-icon {
+    background: #c94f91;
+
+    color: #ffffff;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   SVG ICON
+========================================================= */
+
+.quick-access-icon svg {
+    width: 23px;
+    height: 23px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.quick-access-text {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    line-height: 1.2;
+}
+
+
+.quick-access-text strong {
+    color: #c94f91;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+
+.quick-access-text span {
+    margin-top: 2px;
+    color: #214d7d;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .quick-access-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 10px;
+    }
+
+    .quick-access-card {
+        padding: 8px 12px;
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .quick-access-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .quick-access-title {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .pmay-quick-access {
+        padding: 6px 0 10px;
+    }
+
+    .quick-access-inner {
+        padding: 10px;
+
+        border-radius: 7px;
+    }
+
+    .quick-access-grid {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+    .quick-access-card {
+        min-height: 58px;
+
+        padding: 8px 12px;
+    }
+
+    .quick-access-icon {
+        width: 40px;
+        height: 40px;
+
+        flex-basis: 40px;
+    }
+
+    .quick-access-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .quick-access-text strong {
+        font-size: 13px;
+    }
+
+    .quick-access-text span {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   PMAY-U 2.0
+   CITIZEN AWARENESS / DEMAND SURVEY SECTION
+
+   MAIN THEME:
+   #c94f91
+========================================================= */
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.pmay-awareness-section {
+    width: 100%;
+
+    max-width: 1800px;
+
+    margin: 0 auto;
+
+    /* padding: 42px 5% 45px; */
+
+    background: #ffffff;
+
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.awareness-header {
+    width: 100%;
+
+    margin-bottom: 28px;
+
+    text-align: left;
+}
+
+.awareness-header h2 {
+    margin: 0;
+
+    color: #A32966;
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+/* .awareness-header-line {
+    width: 48px;
+
+    height: 3px;
+
+    margin-top: 8px;
+
+    background: #c94f91;
+
+    border-radius: 10px;
+} */
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.awareness-container {
+    width: 100%;
+
+    max-width: 1800px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1.05fr 0.95fr;
+
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   FEATURED CONTENT
+========================================================= */
+
+.awareness-featured {
+    width: 100%;
+
+    text-align: center;
+
+    padding: 0;
+}
+
+
+/* =========================================================
+   FEATURED IMAGE
+========================================================= */
+
+.featured-media {
+    width: 100%;
+
+    height: 330px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #fff0f7;
+
+    border: 1px solid #ead7e3;
+
+    box-shadow:
+        0 5px 16px rgba(31, 58, 85, 0.08);
+}
+
+.featured-media img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.featured-media:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =========================================================
+   PLAY BUTTON
+========================================================= */
+
+.video-play {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #c94f91;
+
+    border: 4px solid rgba(255, 255, 255, 0.9);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.video-play:hover {
+    background: #a83e76;
+
+    transform:
+        translate(-50%, -50%) scale(1.08);
+}
+
+.video-play svg {
+    width: 25px;
+    height: 25px;
+
+    fill: #ffffff;
+
+    stroke: none;
+
+    margin-left: 3px;
+}
+
+
+/* =========================================================
+   FEATURED TITLE
+========================================================= */
+
+.awareness-featured h3 {
+    margin: 15px 0 10px;
+
+    color: #c94f91;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   TITLE DIVIDER
+========================================================= */
+
+.featured-line {
+    width: 100%;
+
+    height: 2px;
+
+    margin: 0 auto 14px;
+
+    background: #ead7e3;
+
+    position: relative;
+}
+
+.featured-line::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 90px;
+    height: 2px;
+
+    background: #c94f91;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.awareness-featured p {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    color: #52677e;
+
+    font-size: 17px;
+
+    font-weight: 400;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   IMAGE GALLERY
+========================================================= */
+
+.awareness-gallery {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-rows: repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   GALLERY IMAGE
+========================================================= */
+
+.awareness-image {
+    width: 100%;
+
+    min-height: 155px;
+
+    display: block;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #fff0f7;
+
+    border: 1px solid #ead7e3;
+
+    position: relative;
+}
+
+.awareness-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(180deg,
+            transparent 65%,
+            rgba(201, 79, 145, 0.12));
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+}
+
+.awareness-image:hover::after {
+    opacity: 1;
+}
+
+.awareness-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.awareness-image:hover img {
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   READ MORE
+========================================================= */
+
+.awareness-footer {
+    width: 100%;
+
+    max-width: 1800px;
+
+    margin: 25px auto 0;
+
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+.awareness-read-more {
+    min-width: 115px;
+
+    padding: 11px 17px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    background: #c94f91;
+
+    border: 1px solid #c94f91;
+
+    border-radius: 7px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.awareness-read-more svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+
+    stroke: #ffffff;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.awareness-read-more:hover {
+    background: #a83e76;
+
+    border-color: #a83e76;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(201, 79, 145, 0.25);
+}
+
+.awareness-read-more:hover svg {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   LARGE LAPTOP
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .pmay-awareness-section {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .awareness-container {
+        gap: 20px;
+    }
+
+    .featured-media {
+        height: 300px;
+    }
+
+    .awareness-featured h3 {
+        font-size: 22px;
+    }
+
+    .awareness-featured p {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .awareness-container {
+        grid-template-columns: 1fr;
+
+        max-width: 700px;
+    }
+
+    .featured-media {
+        height: 350px;
+    }
+
+    .awareness-gallery {
+        min-height: 400px;
+    }
+
+    .awareness-footer {
+        max-width: 700px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .pmay-awareness-section {
+        padding: 30px 15px 35px;
+    }
+
+    .awareness-header {
+        margin-bottom: 20px;
+    }
+
+    .awareness-header h2 {
+        font-size: 22px;
+    }
+
+    .awareness-header-line {
+        width: 40px;
+
+        margin-top: 7px;
+    }
+
+    .awareness-container {
+        gap: 20px;
+    }
+
+    .featured-media {
+        height: 240px;
+
+        border-radius: 10px;
+    }
+
+    .video-play {
+        width: 50px;
+        height: 50px;
+    }
+
+    .video-play svg {
+        width: 21px;
+        height: 21px;
+    }
+
+    .awareness-featured h3 {
+        margin-top: 13px;
+
+        font-size: 19px;
+    }
+
+    .awareness-featured p {
+        font-size: 12.5px;
+
+        line-height: 1.6;
+    }
+
+    .awareness-gallery {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+
+        min-height: 280px;
+    }
+
+    .awareness-image {
+        min-height: 135px;
+
+        border-radius: 10px;
+    }
+
+    .awareness-footer {
+        justify-content: center;
+
+        margin-top: 20px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .featured-media {
+        height: 210px;
+    }
+
+    .awareness-gallery {
+        grid-template-columns: 1fr;
+
+        grid-template-rows: auto;
+
+        min-height: 0;
+    }
+
+    .awareness-image {
+        height: 180px;
+
+        min-height: 0;
+    }
+
+    .awareness-featured h3 {
+        font-size: 18px;
+    }
+
+    .awareness-featured p {
+        font-size: 12px;
+    }
+}
+
+/* =========================================================
+   PMAY-U 2.0
+   FAQ SEARCH SECTION
+   THEME: #c94f91
+========================================================= */
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.pmay-faq-section {
+    width: 100%;
+
+    padding: 12px 0;
+
+    background: #ffffff;
+
+    
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.pmay-faq-inner {
+    width: 100%;
+    max-width: 1800px;
+
+    min-height: 82px;
+
+    margin: 0 auto;
+
+    padding: 10px 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    background: #fff7fb;
+
+    border: 1px solid #e8d8e3;
+
+    border-radius: 9px;
+
+    box-shadow:
+        0 2px 8px rgba(22, 63, 115, 0.05);
+}
+
+
+/* =========================================================
+   FAQ ICON
+========================================================= */
+
+.faq-icon-box {
+    width: 50px;
+    height: 50px;
+
+    flex: 0 0 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fff0f7;
+
+    border: 1px solid #efc6da;
+
+    color: #c94f91;
+}
+
+.faq-icon-box svg {
+    width: 28px;
+    height: 28px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.faq-title {
+    width: 340px;
+
+    flex: 0 0 340px;
+}
+
+.faq-title h2 {
+    margin: 0 0 5px;
+
+    color: #163f73;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    line-height: 1.15;
+}
+
+.faq-title p {
+    margin: 0;
+
+    color: #61758c;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   SEARCH BOX
+========================================================= */
+
+.faq-search {
+    height: 38px;
+
+    flex: 1;
+
+    min-width: 200px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 12px;
+
+    background: #ffffff;
+
+    border: 1px solid #cfddea;
+
+    border-radius: 22px;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Search icon */
+
+.faq-search>svg {
+    width: 17px;
+    height: 17px;
+
+    flex: 0 0 17px;
+
+    color: #8da1b5;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* Input */
+
+.faq-search input {
+    width: 100%;
+
+    height: 100%;
+
+    padding: 0 10px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #163f73;
+
+    font-family: inherit;
+
+    font-size: 16px;
+}
+
+.faq-search input::placeholder {
+    color: #91a0b1;
+
+    opacity: 1;
+}
+
+
+/* Search focus */
+
+.faq-search:focus-within {
+    border-color: #c94f91;
+
+    box-shadow:
+        0 0 0 3px rgba(201, 79, 145, 0.08);
+}
+
+
+/* Search button */
+
+.faq-search button {
+    width: 38px;
+    height: 36px;
+
+    flex: 0 0 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    color: #52677e;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+}
+
+.faq-search button:hover {
+    color: #c94f91;
+}
+
+.faq-search button svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   VIEW ALL BUTTON
+========================================================= */
+
+.faq-view-all {
+    min-width: 180px;
+    height: 38px;
+    padding: 0 14px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #c94f91;
+    border-radius: 6px;
+    color: #c94f91;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faq-view-all svg {
+    width: 16px;
+    height: 16px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.faq-view-all:hover {
+    background: #c94f91;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 12px rgba(201, 79, 145, 0.18);
+}
+
+.faq-view-all:hover svg {
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .pmay-faq-inner {
+        gap: 11px;
+
+        padding: 10px 14px;
+    }
+
+    .faq-title {
+        width: 285px;
+
+        flex-basis: 285px;
+    }
+
+    .faq-title h2 {
+        font-size: 17px;
+    }
+
+    .faq-view-all {
+        min-width: 115px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .pmay-faq-section {
+        padding: 15px;
+    }
+
+    .pmay-faq-inner {
+        flex-wrap: wrap;
+
+        padding: 15px;
+
+        min-height: auto;
+    }
+
+    .faq-title {
+        flex: 1;
+
+        width: auto;
+    }
+
+    .faq-search {
+        order: 3;
+
+        flex: 1 1 100%;
+
+        width: 100%;
+    }
+
+    .faq-view-all {
+        margin-left: auto;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .pmay-faq-section {
+        padding: 12px;
+    }
+
+    .pmay-faq-inner {
+        display: grid;
+
+        grid-template-columns: 48px 1fr;
+
+        gap: 10px;
+
+        padding: 13px;
+    }
+
+    .faq-icon-box {
+        width: 48px;
+        height: 48px;
+    }
+
+    .faq-icon-box svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .faq-title {
+        width: 100%;
+    }
+
+    .faq-title h2 {
+        font-size: 16px;
+    }
+
+    .faq-title p {
+        font-size: 10px;
+    }
+
+    .faq-search {
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+        height: 40px;
+    }
+
+    .faq-view-all {
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+        height: 40px;
+
+        margin: 0;
+    }
+}
+
+/* =========================================================
+   PMAY-U 2.0
+   GREEN-STYLE FOOTER
+   NEW THEME: #c94f91
+========================================================= */
+
+.pmay-green-style-footer {
+    width: 100%;
+
+    position: relative;
+
+    background: #c94f91;
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   MAIN FOOTER
+========================================================= */
+
+.pmay-footer-main {
+    position: relative;
+    width: 100%;
+    min-height: 245px;
+    padding: 32px 4% 30px;
+    background: linear-gradient(135deg, #A32966, #DB70A6);
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   USEFUL LINKS
+========================================================= */
+
+.footer-useful-links {
+    width: 70%;
+}
+
+.footer-useful-links h3,
+.footer-subscribe h3 {
+    margin: 0 0 20px;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   LINKS GRID
+========================================================= */
+
+.useful-links-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(150px, 1fr));
+
+    column-gap: 45px;
+
+    row-gap: 15px;
+}
+
+
+.useful-links-grid a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 400;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.useful-links-grid a span {
+    font-size: 23px;
+
+    line-height: 12px;
+}
+
+
+.useful-links-grid a:hover {
+    color: #ffe1ef;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   SUBSCRIBE AREA
+========================================================= */
+
+.footer-subscribe {
+    position: absolute;
+
+    top: 32px;
+
+    right: 4%;
+
+    width: 270px;
+}
+
+
+.footer-subscribe h3 {
+    margin-bottom: 17px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
+
+.footer-social-icons {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 18px;
+}
+
+
+.footer-social-icons a {
+    width: 29px;
+    height: 29px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    border: 1px solid transparent;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.footer-social-icons a:hover {
+    background: rgba(255, 255, 255, 0.15);
+
+    border-color: rgba(255, 255, 255, 0.5);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   GOVERNMENT BADGES
+========================================================= */
+
+.footer-gov-badges {
+    position: absolute;
+    top: 100px;
+    display: flex;
+    gap: 7px;
+    justify-content: flex-start;
+}
+
+
+.mygov-badge,
+.india-badge {
+    width: 108px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border-radius: 4px;
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+}
+
+
+.mygov-badge {
+    color: #c94f91;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+
+.mygov-badge span {
+    color: #6bb9aa;
+
+    margin-right: 2px;
+}
+
+
+.india-badge {
+    flex-direction: column;
+
+    color: #163f73;
+
+    line-height: 1;
+}
+
+
+.india-badge strong {
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+
+.india-badge small {
+    margin-top: 4px;
+
+    color: #667789;
+
+    font-size: 6px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   OWNERSHIP TEXT
+========================================================= */
+
+.footer-ownership {
+    position: absolute;
+
+    left: 4%;
+
+    bottom: 32px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 400;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+
+
+/* =========================================================
+   LARGE SCREEN
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .pmay-footer-main {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .footer-useful-links {
+        width: 72%;
+    }
+
+    .footer-subscribe {
+        right: 6%;
+    }
+
+    .footer-ownership {
+        left: 6%;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .pmay-footer-main {
+        min-height: 330px;
+
+        padding: 30px 5%;
+    }
+
+    .footer-useful-links {
+        width: 100%;
+    }
+
+    .useful-links-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        column-gap: 30px;
+    }
+
+    .footer-subscribe {
+        position: static;
+
+        width: 100%;
+
+        margin-top: 30px;
+    }
+
+    .footer-subscribe h3 {
+        margin-bottom: 12px;
+    }
+
+    .footer-gov-badges {
+        position: static;
+
+        margin-top: 22px;
+
+        justify-content: flex-start;
+    }
+
+    .footer-ownership {
+        position: static;
+
+        margin-top: 28px;
+
+        font-size: 14px;
+    }
+
+    .footer-top-button {
+        top: 22px;
+
+        right: 25px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .pmay-footer-main {
+        min-height: auto;
+
+        padding: 28px 20px 30px;
+    }
+
+    .footer-useful-links h3,
+    .footer-subscribe h3 {
+        font-size: 18px;
+    }
+
+    .useful-links-grid {
+        grid-template-columns: 1fr;
+
+        row-gap: 12px;
+    }
+
+    .useful-links-grid a {
+        font-size: 15px;
+    }
+
+    .footer-subscribe {
+        margin-top: 28px;
+    }
+
+    .footer-social-icons {
+        gap: 13px;
+    }
+
+    .footer-gov-badges {
+        justify-content: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+    .footer-ownership {
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+    .footer-top-button {
+        position: absolute;
+
+        top: auto;
+
+        right: 18px;
+
+        bottom: 25px;
+
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/*CONTENT SECTION CSS START*/
+/* =========================================================
+   PMAY-U 2.0
+   INNER PAGE BANNER
+   THEME: #c94f91
+========================================================= */
+
+
+/* =========================================================
+   MAIN BANNER
+========================================================= */
+
+.pmay-page-banner {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    overflow: visible;
+    background-image: url("../img/Inner_banner/DBIM__PNG_1.png");
+    margin-top: 160px;
+}
+
+
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
+
+.page-banner-image {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 72%;
+    height: 100%;
+
+    background-image:
+        url("images/media-banner.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   THEME OVERLAY
+========================================================= */
+
+.page-banner-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(237deg, rgb(22 63 115 / 16%) 0%, rgb(201 79 145 / 59%) 22%, rgba(201, 79, 145, 0.82) 42%, rgba(201, 79, 145, 0.35) 63%, rgba(201, 79, 145, 0.05) 100%);
+}
+
+
+/* =========================================================
+   BANNER CONTAINER
+========================================================= */
+
+.page-banner-container {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    max-width: 1870px;
+
+    height: 100%;
+
+    margin: 0 auto;
+
+    padding: 0 30px;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.page-banner-content {
+    padding-left: 40px;
+
+    margin-top: -10px;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.page-breadcrumb {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 8px;
+}
+
+
+.page-breadcrumb a,
+.page-breadcrumb span {
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+}
+
+
+.page-breadcrumb a:last-child {
+    text-decoration: underline;
+
+    text-underline-offset: 3px;
+}
+
+
+.page-breadcrumb a:hover {
+    color: #ffd6e8;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.page-banner-content h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    line-height: 1.15;
+}
+
+
+/* =========================================================
+   MEDIA NAVIGATION
+========================================================= */
+
+.media-page-nav {
+    position: absolute;
+    z-index: 10;
+    left: 29%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    width: calc(100% - 30%);
+    max-width: 900px;
+    min-height: 68px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    background: #c94f91;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 7px 18px rgba(22, 63, 115, 0.18);
+}
+
+
+/* =========================================================
+   NAV ITEM
+========================================================= */
+
+.media-nav-item {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   ACTIVE ITEM
+========================================================= */
+
+.media-nav-item.active {
+    font-weight: 700;
+}
+
+
+.media-nav-item.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: -9px;
+
+    height: 3px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   NAV ICON
+========================================================= */
+
+.media-nav-icon {
+    width: 18px;
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 25px;
+
+    line-height: 14px;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.media-nav-item:hover {
+    color: #ffe0ed;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .pmay-page-banner {
+        height: 260px;
+    }
+
+    .page-banner-image {
+        width: 68%;
+    }
+
+    .page-banner-content {
+        padding-left: 20px;
+    }
+
+    .page-banner-content h1 {
+        font-size: 34px;
+    }
+
+    .media-page-nav {
+        width: calc(100% - 15%);
+
+        gap: 22px;
+
+        padding: 0 20px;
+    }
+
+    .media-nav-item {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .pmay-page-banner {
+        height: 250px;
+    }
+
+    .page-banner-image {
+        width: 100%;
+    }
+
+    .page-banner-overlay {
+        background:
+            linear-gradient(90deg,
+                rgba(22, 63, 115, 0.94),
+                rgba(201, 79, 145, 0.65));
+    }
+
+    .page-banner-container {
+        padding: 0 22px;
+    }
+
+    .page-banner-content {
+        padding-left: 0;
+    }
+
+    .page-breadcrumb a,
+    .page-breadcrumb span {
+        font-size: 13px;
+    }
+
+    .page-banner-content h1 {
+        font-size: 32px;
+    }
+
+    .media-page-nav {
+        bottom: -48px;
+
+        width: calc(100% - 30px);
+
+        min-height: auto;
+
+        padding: 14px 15px;
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 12px 20px;
+
+        border-radius: 0 0 10px 10px;
+    }
+
+    .media-nav-item {
+        font-size: 14px;
+    }
+
+    .media-nav-item.active::after {
+        bottom: -5px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .pmay-page-banner {
+        height: 220px;
+    }
+
+    .page-banner-content h1 {
+        font-size: 28px;
+    }
+
+    .media-page-nav {
+        width: calc(100% - 20px);
+
+        gap: 11px 15px;
+
+        padding: 13px;
+    }
+
+    .media-nav-item {
+        font-size: 13px;
+    }
+
+    .media-nav-icon {
+        font-size: 21px;
+    }
+}
+
+.wrapper-affixz-disclaimer-master {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: justify;
+}
+
+/*CONTENT SECTION CSS End*/
+/* =========================================================
+   PMAY-U 2.0 PHOTO GALLERY
+   NEW THEME
+   PRIMARY: #c94f91
+   DARK BLUE: #163f73
+========================================================= */
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.pmay-photo-gallery {
+    width: 100%;
+
+    padding: 50px 4% 45px;
+
+    background: #ffffff;
+
+
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.photo-gallery-container {
+    width: 100%;
+
+    max-width: 1800px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px 22px;
+}
+
+
+/* =========================================================
+   PHOTO CARD
+========================================================= */
+
+.photo-card {
+    width: 100%;
+
+    min-width: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #ead8e3;
+
+    border-radius: 7px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 10px rgba(22, 63, 115, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.photo-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #d98bb1;
+
+    box-shadow:
+        0 9px 22px rgba(22, 63, 115, 0.14);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.photo-image {
+    width: 100%;
+
+    height: 195px;
+
+    display: block;
+
+    overflow: hidden;
+
+    background: #fff4f9;
+}
+
+
+.photo-image img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.45s ease;
+}
+
+
+.photo-card:hover .photo-image img {
+    transform: scale(1.055);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.photo-content {
+    min-height: 142px;
+
+    padding: 13px 13px 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.photo-content h3 {
+    margin: 0;
+
+    color: #163f73;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    flex: 1;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   READ MORE
+========================================================= */
+
+.photo-read-more {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: start;
+
+    gap: 7px;
+
+    margin-top: 12px;
+
+    color: #c94f91;
+
+    font-size: 15.5px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.photo-read-more span {
+    font-size: 15px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.photo-read-more:hover {
+    color: #a83e76;
+}
+
+
+.photo-read-more:hover span {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   VIEW ALL FOOTER
+========================================================= */
+
+.photo-gallery-footer {
+    width: 100%;
+
+    max-width: 1320px;
+
+    margin: 30px auto 0;
+
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+
+.photo-view-all {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    min-width: 130px;
+
+    padding: 11px 18px;
+
+    background: #c94f91;
+
+    border: 1px solid #c94f91;
+
+    border-radius: 7px;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.photo-view-all span {
+    font-size: 17px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.photo-view-all:hover {
+    background: #a83e76;
+
+    border-color: #a83e76;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(201, 79, 145, 0.22);
+}
+
+
+.photo-view-all:hover span {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .pmay-photo-gallery {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .photo-gallery-container {
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 20px;
+    }
+
+    .photo-image {
+        height: 185px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .photo-gallery-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 20px;
+    }
+
+    .photo-image {
+        height: 200px;
+    }
+
+    .photo-content {
+        min-height: 145px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+    .pmay-photo-gallery {
+        padding: 28px 15px 35px;
+    }
+
+    .photo-gallery-container {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .photo-image {
+        height: 225px;
+    }
+
+    .photo-content {
+        min-height: 130px;
+
+        padding: 14px;
+    }
+
+    .photo-content h3 {
+        font-size: 14px;
+    }
+
+    .photo-gallery-footer {
+        justify-content: center;
+
+        margin-top: 25px;
+    }
+
+    .photo-view-all {
+        width: 100%;
+
+        max-width: 180px;
+    }
+}
+
+/*Sunny CSS Start 30-09-2026*/
+/* Main Topbar Container */
+.custom-gov-topbar {
+    background-color: #5c001e; /* Dark Maroon Background */
+    color: #ffffff;
+    
+    font-size: 13px;
+    width: 100%;
+    padding: 6px 0;
+}
+
+.custom-gov-container {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #A32966, #DB70A6);}
+
+/* Left Group */
+.custom-gov-left-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Right Group */
+.custom-gov-right-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Item Links */
+.custom-gov-item-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.custom-gov-item-link:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+/* Separator Line (|) */
+.custom-gov-separator {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+}
+
+/* Font Resizer Buttons */
+.custom-gov-font-resizer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.custom-gov-size-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 2px 4px;
+}
+
+.custom-gov-size-btn:hover {
+    color: #ffd700; /* Subtle Gold on Hover */
+}
+
+/* Search Icon Button */
+.custom-gov-search-trigger {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+}
+
+.custom-gov-search-trigger:hover {
+    color: #ffd700;
+}
+
+/* Main Navigation Bar Background */
+.pmaj-main-navbar {
+    background-color: #5c001e; /* Dark Maroon Accent */
+    font-family: Arial, sans-serif;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pmaj-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Nav Menu List */
+.pmaj-nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Nav Link Items */
+.pmaj-nav-item {
+    position: relative;
+}
+
+.pmaj-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    transition: color 0.2s ease;
+}
+
+.pmaj-nav-link:hover, 
+.pmaj-nav-link.pmaj-active {
+    color: #ffd700; /* Subtle Gold Accent on Hover/Active */
+}
+
+.pmaj-caret {
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+/* Dropdown Styling */
+.pmaj-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #5c001e;
+    min-width: 180px;
+    list-style: none;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 999;
+    border-top: 2px solid #ffd700;
+}
+
+.pmaj-has-dropdown:hover .pmaj-dropdown-menu {
+    display: block;
+}
+
+.pmaj-dropdown-link {
+    color: #ffffff;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background 0.2s ease;
+}
+
+.pmaj-dropdown-link:hover {
+    background-color: #420015;
+    color: #ffd700;
+}
+
+/* Right Search Button */
+.pmaj-nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.pmaj-search-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.pmaj-search-icon {
+    stroke: #ffffff;
+    transition: stroke 0.2s ease;
+}
+
+.pmaj-search-btn:hover .pmaj-search-icon {
+    stroke: #ffd700;
+}
+
+/* Mobile Responsive Styling */
+.pmaj-hamburger-btn {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.pmaj-bar {
+    width: 22px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+@media screen and (max-width: 768px) {
+    .pmaj-hamburger-btn {
+        display: flex;
+    }
+
+    .pmaj-nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #5c001e;
+        padding: 10px 0;
+        gap: 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .pmaj-nav-menu.pmaj-menu-open {
+        display: flex;
+    }
+
+    .pmaj-nav-item {
+        width: 100%;
+    }
+
+    .pmaj-nav-link {
+        padding: 12px 20px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .pmaj-dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background-color: #420015;
+        width: 100%;
+    }
+}.Wrapper-SearchIcon-Align svg.custom-gov-search-icon {
+    width: 20px;
+    height: 20px;
+}
+.Wrapper-SearchIcon-Align {
+    padding-right: 20px;
+/* =========================================
+   PMAY CUSTOM SLIDER (CORRECTED & STABLE)
+   ========================================= */
+
+/* Heading Styling */
+h2.sunil-pmay-title {
+    color: #c94f91;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+/* Slider Main Box */
+.sunil-pmay-slider {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #f8f3eb;
+}
+
+.sunil-pmay-carousel,
+.sunil-pmay-carousel .carousel-inner,
+.sunil-pmay-carousel .carousel-item {
+    width: 100%;
+    position: relative;
+}
+
+/* Bootstrap Carousel Display Fix */
+.sunil-pmay-carousel .carousel-item {
+    display: none;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+.sunil-pmay-carousel .carousel-item.active {
+    display: block;
+}
+
+/* Banner Image Setup */
+img.sunil-pmay-banner-img,
+.sunil-pmay-banner-img {
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+    display: block;
+    object-fit: cover;
+}
+
+/* Content Overlay (Text + Button Container) */
+.sunil-pmay-content {
+    position: absolute;
+    left: 31%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38%;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+/* Main Heading */
+.sunil-pmay-title {
+    margin: 0 0 5px;
+    color: #70152d;
+    font-size: clamp(18px, 2.3vw, 34px);
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+/* Subtitle */
+.sunil-pmay-subtitle {
+    margin: 0 0 5px;
+    color: #70152d;
+    font-size: clamp(12px, 1.25vw, 20px);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Description Paragraph */
+.sunil-pmay-description {
+    margin: 0 0 13px;
+    color: #555555;
+    font-size: clamp(10px, 0.9vw, 14px);
+    line-height: 1.4;
+    max-width: 350px;
+}
+
+/* Call To Action Button */
+.sunil-pmay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 17px;
+    background: #8e1538;
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.sunil-pmay-btn:hover {
+    background: #641027;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+.sunil-pmay-btn-arrow {
+    font-size: 14px;
+    line-height: 1;
+}
+
+/* =========================================
+   CUSTOM NAVIGATION ARROWS (BOOTSTRAP HOOK)
+   ========================================= */
+
+.sunil-pmay-prev,
+.sunil-pmay-next {
+    width: 35px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.85;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.sunil-pmay-prev:hover,
+.sunil-pmay-next:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.sunil-pmay-prev { left: 0; }
+.sunil-pmay-next { right: 0; }
+
+.sunil-pmay-arrow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8e1538;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* =========================================
+   PAGINATION DOTS / INDICATORS
+   ========================================= */
+
+.sunil-pmay-indicators {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    padding-left: 0;
+    gap: 6px;
+    list-style: none;
+    z-index: 20;
+}
+
+.sunil-pmay-indicators button {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    margin: 0 !important;
+    border: 0;
+    border-radius: 50%;
+    background-color: #b9b9b9;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sunil-pmay-indicators button.active {
+    background-color: #801534;
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 991px) {
+    .sunil-pmay-content {
+        left: 30%;
+        width: 44%;
+    }
+
+    .sunil-pmay-description {
+        margin-bottom: 8px;
+    }
+
+    .sunil-pmay-btn {
+        padding: 6px 12px;
+        font-size: 10px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 767px) {
+    .sunil-pmay-banner-img {
+        min-height: 180px;
+        object-fit: cover;
+    }
+
+    .sunil-pmay-content {
+        left: 32%;
+        top: 50%;
+        width: 55%;
+    }
+
+    .sunil-pmay-title {
+        font-size: 14px;
+        line-height: 1.15;
+        margin-bottom: 2px;
+    }
+
+    .sunil-pmay-subtitle {
+        font-size: 9px;
+        margin-bottom: 3px;
+    }
+
+    .sunil-pmay-description {
+        font-size: 8px;
+        line-height: 1.2;
+        margin-bottom: 6px;
+        max-width: 200px;
+    }
+
+    .sunil-pmay-btn {
+        padding: 4px 9px;
+        font-size: 8px;
+        gap: 3px;
+    }
+
+    .sunil-pmay-btn-arrow {
+        font-size: 9px;
+    }
+
+    .sunil-pmay-prev,
+    .sunil-pmay-next {
+        width: 24px;
+        height: 38px;
+    }
+
+    .sunil-pmay-arrow {
+        font-size: 18px;
+    }
+
+    .sunil-pmay-indicators {
+        bottom: 4px;
+    }
+
+    .sunil-pmay-indicators button {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 480px) {
+    .sunil-pmay-banner-img {
+        min-height: 160px;
+    }
+
+    .sunil-pmay-content {
+        left: 33%;
+        width: 58%;
+    }
+
+    .sunil-pmay-title {
+        font-size: 12px;
+    }
+
+    .sunil-pmay-subtitle {
+        font-size: 8px;
+    }
+
+    .sunil-pmay-description {
+        font-size: 7px;
+        max-width: 160px;
+        margin-bottom: 4px;
+    }
+
+    .sunil-pmay-btn {
+        padding: 3px 7px;
+        font-size: 7px;
+    }
+}
+
+
+h1.sunil-pmay-title {
+    color: #bfbfbf;
+}

@@ -1,0 +1,1406 @@
+body {
+    font-family: "Noto Sans", sans-serif !important;
+    overflow-x: hidden;
+}
+        :root {
+            --sunil-pmay-pink: #c94f91;
+            --sunil-pmay-dark: #a32966;
+            --sunil-pmay-light: #db70a6;
+            --sunil-pmay-border: #e6dfe3;
+            --sunil-pmay-text: #333333;
+            --sunil-pmay-muted: #777777;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            color: var(--sunil-pmay-text);
+           font-family: "Noto Sans", sans-serif !important;
+        }
+
+/* =========================================
+   PMAY SLIDER - EXACT IMAGE FONT & STYLING MATCH
+   ========================================= */
+
+/* Main Title (Pradhan Mantri Awas Yojana - Urban 2.0) */
+.sunil-pmay-title {
+    
+    color: #a32966;
+    font-size: clamp(22px, 2.6vw, 50px);
+    font-weight: 700; /* Extra Bold */
+    line-height: 1.18;
+    letter-spacing: -0.4px;
+    margin: 0 0 8px 0;
+}
+.portal-footer-links-col {
+    border-right: 1px solid #fbebf3;
+}
+.portal-brand-text {
+    padding-top: 25px;
+}
+
+/* Subtitle (Har Ghar, Sushasit Ghar) */
+.sunil-pmay-subtitle {
+    
+    color: #a32966; /* Matching Maroon Tone */
+    font-size: clamp(14px, 1.4vw, 20px);
+    font-weight: 700; /* Bold */
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+    margin: 0 0 10px 0;
+}
+
+/* Description Text (Providing pucca houses with basic amenities...) */
+.sunil-pmay-description {
+    
+    color: #222; /* Exact Muted Slate Dark Gray */
+    font-size: clamp(11px, 1.05vw, 15px);
+    font-weight: 500; /* Medium Weight */
+    line-height: 1.42;
+    margin: 0 0 18px 0;
+    max-width: 380px;
+}
+
+/* Rounded Pill Button (Know More ->) */
+.sunil-pmay-btn {
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(180deg, #610B24 0%, #4A0519 100%); /* Deep Maroon Gradient */
+    color: #FFFFFF !important;
+    text-decoration: none;
+    padding: 8px 22px;
+    border-radius: 5px; /* Perfect Pill Shape like image */
+    font-size: clamp(11px, 1vw, 14px);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    box-shadow: 0 3px 8px rgba(97, 11, 36, 0.3);
+    transition: all 0.25s ease-in-out;
+    border: none;
+}
+
+.sunil-pmay-btn:hover {
+    background: linear-gradient(135deg, #A32966, #DB70A6);
+    transform: translateY(-1.5px);
+    box-shadow: 0 5px 12px rgba(97, 11, 36, 0.4);
+    color: #FFFFFF !important;
+}
+
+/* Arrow inside button */
+.sunil-pmay-btn-arrow {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.sunil-pmay-btn:hover .sunil-pmay-btn-arrow {
+    transform: translateX(3px);
+}
+
+/* Content Container Alignment Fix */
+.sunil-pmay-content {
+    position: absolute;
+    left: 35.5%;
+    top: 65% !important;
+    transform: translateY(-50%);
+    width: 40%;
+    z-index: 00000 !important;
+}
+
+/* Mobile & Responsive Exact Alignment */
+@media (max-width: 991px) {
+    .sunil-pmay-content {
+        left: 29.5%;
+        width: 45%;
+    }
+    .sunil-pmay-btn {
+        padding: 6px 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sunil-pmay-content {
+        left: 32%;
+        width: 58%;
+    }
+    .sunil-pmay-title {
+        font-size: 15px;
+        margin-bottom: 4px;
+    }
+    .sunil-pmay-subtitle {
+        font-size: 10px;
+        margin-bottom: 4px;
+    }
+    .sunil-pmay-description {
+        font-size: 8.5px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+    }
+    .sunil-pmay-btn {
+        padding: 4px 12px;
+        border-radius: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sunil-pmay-content {
+        left: 34%;
+        width: 60%;
+    }
+    .sunil-pmay-title {
+        font-size: 12px;
+    }
+    .sunil-pmay-subtitle {
+        font-size: 8.5px;
+    }
+    .sunil-pmay-description {
+        font-size: 7.5px;
+        margin-bottom: 6px;
+    }
+    .sunil-pmay-btn {
+        padding: 3px 9px;
+    }
+}
+
+
+.sunil-pmay-btn {
+    width: 175px;
+    min-height: 45px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: #a32966;
+    border: 1px solid #c94f91;
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+       /* .sunil-pmay-dashboard {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 50px 25px;
+        }*/
+
+        /* =====================================================
+           COMMON
+        ===================================================== */
+
+        .sunil-pmay-section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .sunil-pmay-section-title h2 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--sunil-pmay-dark);
+        }
+
+       .sunil-pmay-view-link {
+    color: var(--sunil-pmay-dark);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+        .sunil-pmay-view-link:hover {
+            color: var(--sunil-pmay-pink);
+        }
+
+        /* =====================================================
+           TOP STAT CARDS
+        ===================================================== */
+
+        .sunil-pmay-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sunil-pmay-stat-card {
+            min-height: 82px;
+            border: 1px solid var(--sunil-pmay-border);
+            border-radius: 7px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            padding: 12px 14px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .sunil-pmay-stat-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    color: #a32966;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 17px;
+    border: 1px solid #a32966;
+}
+
+        .sunil-pmay-stat-content {
+            min-width: 0;
+        }
+
+        .sunil-pmay-stat-number {
+            display: block;
+            color: var(--sunil-pmay-dark);
+            font-size: 22px;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .sunil-pmay-stat-label {
+            display: block;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        /* =====================================================
+           PROGRESS TABS
+        ===================================================== */
+
+        .sunil-pmay-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin: 15px 0 8px;
+        }
+
+        .sunil-pmay-tab {
+    border: 0;
+    background: #faebf2;
+    color: #222;
+    min-height: 50px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+        .sunil-pmay-tab i {
+            font-size: 16px;
+        }
+
+        .sunil-pmay-tab.active {
+            background: var(--sunil-pmay-dark);
+            color: #fff;
+        }
+
+        .sunil-pmay-tab:hover {
+            background: var(--sunil-pmay-pink);
+            color: #fff;
+        }
+
+        /* =====================================================
+           MAP + STATE + TOP 5
+        ===================================================== */
+
+        .sunil-pmay-progress-area {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr 1.25fr;
+            gap: 10px;
+            margin-top: 7px;
+        }
+
+        .sunil-pmay-map-box {
+            min-height: 190px;
+            border: 1px solid #eee;
+            border-radius: 7px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .sunil-pmay-map-image {
+            width: 82%;
+            max-height: 175px;
+            object-fit: contain;
+        }
+
+        /* =====================================================
+           SELECT STATE
+        ===================================================== */
+
+        .sunil-pmay-state-box {
+            min-height: 190px;
+            border: 1px solid #eee;
+            border-radius: 7px;
+            padding: 35px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #fff;
+        }
+
+        .sunil-pmay-state-label {
+            color: #333;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+       .sunil-pmay-select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0 10px;
+    color: #555;
+    background: #fff;
+    font-size: 16px;
+    outline: none;
+    font-weight: 500;
+}
+
+        .sunil-pmay-select:focus {
+            border-color: var(--sunil-pmay-pink);
+            box-shadow: 0 0 0 2px rgba(201, 79, 145, .12);
+        }
+
+        .sunil-pmay-view-btn {
+            width: max-content;
+            margin-top: 16px;
+            padding: 8px 15px;
+            border: 0;
+            border-radius: 4px;
+            background: var(--sunil-pmay-dark);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .sunil-pmay-view-btn:hover {
+            background: var(--sunil-pmay-pink);
+        }
+
+        /* =====================================================
+           TOP 5 TABLE
+        ===================================================== */
+
+        .sunil-pmay-top-five {
+            min-height: 190px;
+            border: 1px solid #eee;
+            border-radius: 7px;
+            background: #fff;
+            padding: 12px 14px;
+        }
+
+        .sunil-pmay-top-title {
+            color: var(--sunil-pmay-dark);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .sunil-pmay-ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .sunil-pmay-ranking-table tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sunil-pmay-ranking-table tr:last-child {
+            border-bottom: 0;
+        }
+
+        .sunil-pmay-ranking-table td {
+            padding: 5px 2px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .sunil-pmay-ranking-table td:first-child {
+            width: 25px;
+            font-weight: 700;
+            color: #777;
+        }
+
+        .sunil-pmay-ranking-table td:last-child {
+            text-align: right;
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* =====================================================
+           SERVICE CARDS
+        ===================================================== */
+
+        .sunil-pmay-service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .sunil-pmay-service-card {
+            min-height: 62px;
+            border: 1px solid #eee;
+            border-radius: 7px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+        }
+
+        .sunil-pmay-service-icon {
+            width: 34px;
+            height: 34px;
+            min-width: 34px;
+            border-radius: 50%;
+            background: #f9edf4;
+            color: var(--sunil-pmay-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 9px;
+            font-size: 14px;
+        }
+
+        .sunil-pmay-service-title {
+            font-size: 18px;
+            color: #333;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .sunil-pmay-service-text {
+    color: #bb4781;
+    font-size: 16px;
+    line-height: 1.3;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+        /* =====================================================
+           LATEST UPDATES
+        ===================================================== */
+
+        .sunil-pmay-updates {
+            margin-top: 15px;
+        }
+
+        .sunil-pmay-update-list {
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .sunil-pmay-update-row {
+            min-height: 38px;
+            border-bottom: 1px solid #eee;
+            background: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .sunil-pmay-update-row:last-child {
+            border-bottom: 0;
+        }
+
+        .sunil-pmay-date {
+            width: 42px;
+            min-width: 42px;
+            text-align: center;
+            color: var(--sunil-pmay-dark);
+            font-size: 7px;
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        .sunil-pmay-date strong {
+            display: block;
+            font-size: 16px;
+        }
+
+        .sunil-pmay-date small {
+            font-size: 14px;
+        }
+
+        .sunil-pmay-update-text {
+            color: #555;
+            font-size: 16px;
+            padding-left: 5px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE - TABLET
+        ===================================================== */
+
+        @media (max-width: 991px) {
+
+            .sunil-pmay-dashboard {
+                padding: 16px 12px;
+            }
+
+            .sunil-pmay-stat-card {
+                padding: 10px;
+            }
+
+            .sunil-pmay-stat-icon {
+                width: 34px;
+                height: 34px;
+                min-width: 34px;
+                margin-right: 8px;
+            }
+
+            .sunil-pmay-progress-area {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .sunil-pmay-map-box {
+                grid-row: span 1;
+            }
+
+            .sunil-pmay-top-five {
+                grid-column: span 2;
+            }
+
+            .sunil-pmay-service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* =====================================================
+           RESPONSIVE - MOBILE
+        ===================================================== */
+
+        @media (max-width: 767px) {
+
+            .sunil-pmay-dashboard {
+                padding: 12px 8px;
+            }
+
+            .sunil-pmay-section-title h2 {
+                font-size: 16px;
+            }
+
+            .sunil-pmay-view-link {
+                font-size: 9px;
+            }
+
+            .sunil-pmay-stat-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 7px;
+            }
+
+            .sunil-pmay-stat-card {
+                min-height: 70px;
+                padding: 8px;
+            }
+
+            .sunil-pmay-stat-icon {
+                width: 30px;
+                height: 30px;
+                min-width: 30px;
+                font-size: 13px;
+                margin-right: 7px;
+            }
+
+            .sunil-pmay-stat-number {
+                font-size: 22px;
+            }
+
+            .sunil-pmay-stat-label {
+                font-size: 16px;
+            }
+
+            .sunil-pmay-tabs {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .sunil-pmay-tab {
+                min-height: 38px;
+                font-size: 9px;
+            }
+
+            .sunil-pmay-progress-area {
+                grid-template-columns: 1fr;
+            }
+
+            .sunil-pmay-map-box,
+            .sunil-pmay-state-box,
+            .sunil-pmay-top-five {
+                min-height: 180px;
+            }
+
+            .sunil-pmay-top-five {
+                grid-column: auto;
+            }
+
+            .sunil-pmay-service-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px;
+            }
+
+            .sunil-pmay-service-card {
+                min-height: 65px;
+                padding: 7px;
+            }
+
+            .sunil-pmay-service-icon {
+                width: 29px;
+                height: 29px;
+                min-width: 29px;
+                margin-right: 6px;
+            }
+
+            .sunil-pmay-service-title {
+                font-size: 8px;
+            }
+
+            .sunil-pmay-service-text {
+                font-size: 6px;
+            }
+
+            .sunil-pmay-update-text {
+                font-size: 7px;
+            }
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 480px) {
+
+            .sunil-pmay-stat-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sunil-pmay-stat-card {
+                min-height: 64px;
+            }
+
+            .sunil-pmay-service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sunil-pmay-section-title h2 {
+                font-size: 14px;
+            }
+
+            .sunil-pmay-update-row {
+                min-height: 42px;
+            }
+
+        }
+
+
+/*.portal-main-wrapper {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+*/
+/* =========================================
+   1. TOP FEATURE CARDS
+   ========================================= */
+
+.portal-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.portal-feature-card {
+    background: #ffffff;
+    border: 1px solid #f0e6e8;
+    border-radius: 10px;
+    padding: 16px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+        height: 125px;
+}
+
+.portal-feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(201, 79, 145, 0.12);
+}
+
+.portal-card-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #fbebf3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.portal-card-icon-box i {
+    font-size: 20px;
+    color: #a32966; /* Direct Color Code Requested */
+}
+
+.portal-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #a32966; /* Direct Color Code Requested */
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.portal-card-desc {
+    font-size: 17px;
+    color: #312e2e;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* =========================================
+   2. LATEST UPDATES SECTION
+   ========================================= */
+
+.portal-updates-container {
+    margin-bottom: 40px;
+}
+
+.portal-updates-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.portal-updates-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.portal-header-icon-box {
+    width: 28px;
+    height: 28px;
+    background-color: #c94f91;
+    color: #ffffff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.portal-updates-heading h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #a32966; /* Direct Color Code Requested */
+}
+
+.portal-view-all-link {
+    color: #c94f91;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.portal-view-all-link:hover {
+    color: #a33871;
+    text-decoration: underline;
+}
+
+/* News List Items */
+.portal-news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.portal-news-item {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #f4eaee;
+    transition: background-color 0.2s ease;
+}
+
+.portal-news-item:hover {
+    background-color: #fdf8fa;
+}
+
+.portal-date-badge {
+    background-color: #fbebf3;
+    border-radius: 6px;
+    padding: 6px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 65px;
+}
+
+.portal-date-day {
+    font-size: 18px;
+    font-weight: 800;
+    color: #c94f91;
+    line-height: 1;
+}
+
+.portal-date-month {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a32966;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.portal-news-content p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #db70a6;
+    line-height: 1.4;
+    margin-top: 12px;
+}
+
+/* =========================================
+   3. FOOTER SECTION
+   ========================================= */
+
+.portal-site-footer {
+    background: linear-gradient(135deg, #A32966, #DB70A6);
+    color: #ffffff;
+    width: 100%;
+}
+
+.portal-footer-top {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px 0;
+}
+
+section.portal-feature-grid {
+    padding: 30px 30px 0px;
+}
+ul.navbar-nav li.nav-item a.nav-link {
+    font-size: 16px;
+    color: #69123e !important;
+}
+
+.wrapper-affixs-border-new-stylesheet-one-1 {
+    border: 1px solid #6a133f;
+    margin-right: 10px;
+    width: 32%;
+    padding: 15px;
+}
+div#news_update marquee#publication-wrapp ul {
+    list-style: disc;
+}
+.sunil-pmay-tabs {
+    padding: 10px 30px;
+}
+.portal-legal-links a {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.9;
+    font-size: 17px;
+    padding: 10px;
+}
+.portal-last-updated, .portal-copyright {
+    opacity: 0.85;
+    font-size: 17px;
+}
+.portal-bottom-inner {
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.sunil-pmay-section-title {
+    padding: 10px 30px;
+}
+.sunil-pmay-progress-area {
+    padding: 10px 30px;
+}
+.sunil-pmay-stat-grid {
+    padding: 10px 30px;
+}
+.portal-footer-inner {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+    border-right: 1px solid #000;
+    padding: 0px 30px;
+}
+
+.portal-updates-container {
+    margin-bottom: 40px;
+    padding: 10px 30px;
+}
+
+/* Brand Area */
+.portal-footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.portal-emblem-box {
+    filter: brightness(0) invert(1);
+    width: 70px;
+    flex-shrink: 0;
+}
+
+.portal-emblem-img {
+    width: 100%;
+    height: auto;
+}
+
+.portal-brand-text h4 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.portal-brand-text h5 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    opacity: 0.95;
+    margin-top: 2px;
+    color: #ffffff;
+}
+
+.portal-brand-text p {
+    font-size: 17px;
+    font-weight: 400;
+    opacity: 0.85;
+    margin-top: 4px;
+}
+
+/* Footer Link Columns */
+.portal-footer-col-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.portal-footer-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 0px;
+}
+.portal-footer-menu li a span {
+    font-size: 25px;
+}
+.portal-footer-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 17px;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.portal-footer-menu li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.portal-social-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.portal-social-box {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.portal-social-box:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+}
+a{text-decoration: none !important;}
+/* Footer Bottom Bar */
+.portal-footer-bottom {
+    padding: 12px 0;
+    font-size: 11px;
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.portal-bottom-inner {
+    
+
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+a:hover {
+    color: #000 !important;
+   
+}
+.portal-legal-links a {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.portal-legal-links a:hover {
+    text-decoration: underline;
+}
+
+.portal-last-updated, .portal-copyright {
+    opacity: 0.85;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (TABLET & MOBILE)
+   ========================================= */
+
+@media (max-width: 991px) {
+    .portal-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .portal-footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .portal-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portal-news-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .portal-footer-inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .portal-bottom-inner {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+
+button.sunil-pmay-prev.carousel-control-prev{
+    display: none;
+}
+button.sunil-pmay-next.carousel-control-next{
+    display: none;
+}
+
+.carousel-item img{margin: 0px !important}
+a.btn.btn-lg.ulockd-btn-ghostwhite.read-more-btn {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.news h3 {
+    color: #000;
+    font-size: 22px;
+}
+
+section.ulockd-about2 .container-fluid {
+    padding: 10px 80px;
+}
+
+section.ulockd-inner-home .container-fluid {
+    padding: 10px 80px;
+}
+
+.ulockd-inner-home .container-fluid {
+    padding: 10px 80px;
+}
+
+.wrapper-container-fluid-width-set-new-1 {
+    padding: 10px 80px;
+}
+button.btn.btn-primary.btn-sm {
+    background: #a32966;
+    border: transparent !important;
+}
+a.btn.btn-dark.btn-sm {
+    background: #000;
+    color: #fff !important;
+    border: transparent !important;
+}
+table thead tr th {
+    background: #a32966 !important;
+}
+
+h4.panel-title a {
+    color: #6c1340 !important;
+    font-weight: 600;
+    font-size: 18px;
+}
+h4.panel-title {
+    margin-bottom: 0px;
+}
+
+.panel-default > .panel-heading {
+    color: #b5407b;
+    background-color: #fff !important;
+    border: 1px solid #b5407b;
+    margin-bottom: 10px;
+}
+
+.panel-collapse {
+    margin-bottom: 10px;
+}
+
+.collapse .panel-body {
+    border: 1px solid #6c1340;
+    padding: 10px;
+}
+
+
+.content-sandbox {
+    max-width: 720px;
+    margin: 20px auto;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.demo-media {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* Accessibility Fixed Wrapper */
+.a11y-control-node {
+    /*position: fixed;*/
+    top: 6px;
+    right: 150px;
+    z-index: 99999;
+}
+.a11y-screen-reader {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Trigger Button Design */
+.a11y-trigger-btn {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.wrapper-aligment-icon-site-mmap {
+    margin-top: 10px;
+}
+
+.a11y-trigger-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Flyout Card Panel */
+.a11y-flyout-panel {
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 999999;
+    top: 58px;
+    width: 360px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid #e2e8f0;
+}
+
+.a11y-flyout-panel.is-visible {
+    display: block;
+}
+
+.a11y-panel-header {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #111827;
+    margin-bottom: 12px;
+}
+
+/* Fieldsets & Grids */
+.a11y-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+}
+
+.a11y-legend {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.a11y-grid-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.a11y-action-item {
+    display: flex;
+}
+
+/* Tool Buttons Style */
+.a11y-btn {
+    width: 100%;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.a11y-btn span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.a11y-btn:hover {
+    background: #fcf0f5;
+    border-color: #a32966;
+}
+
+.a11y-btn.is-active {
+    background: #fce8f3;
+    border: 2px solid #a32966;
+}
+
+/* Mode Classes */
+body.mode-high-contrast {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+}
+
+body.mode-high-contrast * {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+    border-color: #ffff00 !important;
+}
+
+body.mode-highlight-links a {
+    background-color: #fef08a !important;
+    color: #000000 !important;
+    outline: 2px dashed #a32966 !important;
+    padding: 2px 4px;
+}
+
+body.mode-invert {
+    filter: invert(100%);
+}
+
+body.mode-grayscale {
+    filter: grayscale(100%);
+}
+
+body.mode-expanded-spacing {
+    letter-spacing: 2px !important;
+    word-spacing: 4px !important;
+}
+
+body.mode-expanded-lineheight {
+    line-height: 2.2 !important;
+}
+
+body.mode-hide-images img {
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+body.mode-big-cursor, body.mode-big-cursor * {
+    cursor: url('https://cur.cursors-4u.net/select/sel-2/sel154.cur'), auto !important;
+}
